@@ -1,9 +1,9 @@
 ﻿using System;
-using ShopManagementApp.database;
-using ShopManagementApp.screens;
+using ShopManagementApplication.database;
+using ShopManagementApplication.screens;
 using MySql.Data.MySqlClient;
 using static System.Console;
-namespace ShopManagementApp
+namespace ShopManagementApplication
 {
     class Program
     {
