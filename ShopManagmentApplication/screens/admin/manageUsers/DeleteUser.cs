@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ShopManagementApplication.classes;
 
-namespace ShopManagementApp.screens.admin.manageUsers
+namespace ShopManagementApplication.screens.admin.manageUsers
 {
     internal class DeleteUser : UserControl
     {
         private GroupBox findUserGroup;
         private TextBox usernameTextField;
-        private Button button1;
+        private Button searchBtn;
         private GroupBox foundUserGroup;
         private Label genderLabel;
         private Label roleLabel;
@@ -27,7 +28,7 @@ namespace ShopManagementApp.screens.admin.manageUsers
         private Label phoneText;
         private Label firstNameText;
         private Label lastNameText;
-        private Label label8;
+        private Label roleText;
         private Button deleteBtn;
         private Label deleteUserHeader;
         private Label usernameLabel;
@@ -40,12 +41,12 @@ namespace ShopManagementApp.screens.admin.manageUsers
         {
             this.findUserGroup = new System.Windows.Forms.GroupBox();
             this.usernameTextField = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.searchBtn = new System.Windows.Forms.Button();
             this.usernameLabel = new System.Windows.Forms.Label();
             this.foundUserGroup = new System.Windows.Forms.GroupBox();
             this.emailText = new System.Windows.Forms.Label();
             this.usernameText = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.roleText = new System.Windows.Forms.Label();
             this.genderText = new System.Windows.Forms.Label();
             this.dobText = new System.Windows.Forms.Label();
             this.phoneText = new System.Windows.Forms.Label();
@@ -68,7 +69,7 @@ namespace ShopManagementApp.screens.admin.manageUsers
             // findUserGroup
             // 
             this.findUserGroup.Controls.Add(this.usernameTextField);
-            this.findUserGroup.Controls.Add(this.button1);
+            this.findUserGroup.Controls.Add(this.searchBtn);
             this.findUserGroup.Controls.Add(this.usernameLabel);
             this.findUserGroup.Location = new System.Drawing.Point(113, 67);
             this.findUserGroup.Name = "findUserGroup";
@@ -87,17 +88,18 @@ namespace ShopManagementApp.screens.admin.manageUsers
             this.usernameTextField.Size = new System.Drawing.Size(203, 32);
             this.usernameTextField.TabIndex = 2;
             // 
-            // button1
+            // searchBtn
             // 
-            this.button1.BackColor = System.Drawing.Color.SteelBlue;
-            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(244, 49);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(143, 32);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Search";
-            this.button1.UseVisualStyleBackColor = false;
+            this.searchBtn.BackColor = System.Drawing.Color.SteelBlue;
+            this.searchBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.searchBtn.ForeColor = System.Drawing.Color.White;
+            this.searchBtn.Location = new System.Drawing.Point(244, 49);
+            this.searchBtn.Name = "searchBtn";
+            this.searchBtn.Size = new System.Drawing.Size(143, 32);
+            this.searchBtn.TabIndex = 3;
+            this.searchBtn.Text = "Search";
+            this.searchBtn.UseVisualStyleBackColor = false;
+            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
             // 
             // usernameLabel
             // 
@@ -112,7 +114,7 @@ namespace ShopManagementApp.screens.admin.manageUsers
             // 
             this.foundUserGroup.Controls.Add(this.emailText);
             this.foundUserGroup.Controls.Add(this.usernameText);
-            this.foundUserGroup.Controls.Add(this.label8);
+            this.foundUserGroup.Controls.Add(this.roleText);
             this.foundUserGroup.Controls.Add(this.genderText);
             this.foundUserGroup.Controls.Add(this.dobText);
             this.foundUserGroup.Controls.Add(this.phoneText);
@@ -151,14 +153,14 @@ namespace ShopManagementApp.screens.admin.manageUsers
             this.usernameText.TabIndex = 2;
             this.usernameText.Text = "Username";
             // 
-            // label8
+            // roleText
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(271, 259);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(30, 15);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "Role";
+            this.roleText.AutoSize = true;
+            this.roleText.Location = new System.Drawing.Point(271, 259);
+            this.roleText.Name = "roleText";
+            this.roleText.Size = new System.Drawing.Size(30, 15);
+            this.roleText.TabIndex = 2;
+            this.roleText.Text = "Role";
             // 
             // genderText
             // 
@@ -288,6 +290,7 @@ namespace ShopManagementApp.screens.admin.manageUsers
             this.deleteBtn.TabIndex = 7;
             this.deleteBtn.Text = "Delete";
             this.deleteBtn.UseVisualStyleBackColor = false;
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
             // deleteUserHeader
             // 
@@ -316,6 +319,35 @@ namespace ShopManagementApp.screens.admin.manageUsers
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void searchBtn_Click(object sender, EventArgs e)
+        {
+            string username = usernameTextField.Text;
+            User targetUser = User.GetUser(username)!;
+            if (targetUser == null)
+            {
+                MessageBox.Show("User doesnt exist");
+            }
+            else
+            {
+                firstNameText.Text = targetUser.FirstNames;
+                lastNameText.Text = targetUser.LastName;
+                usernameTextField.Text = targetUser.Username;
+                genderText.Text = targetUser.Gender;
+                roleText.Text = targetUser.Role;
+                emailText.Text = targetUser.Email;
+                dobText.Text = targetUser.Dob.ToString();
+                phoneText.Text = targetUser.Phone;
+            }
+
+            
+        }
+
+        private void deleteBtn_Click(object sender, EventArgs e)
+        {
+            string username = usernameTextField.Text;
+            User.RemoveUser(username);
         }
     }
 }
