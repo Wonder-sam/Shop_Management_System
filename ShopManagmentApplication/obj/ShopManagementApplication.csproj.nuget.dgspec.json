@@ -44,10 +44,6 @@
               "target": "Package",
               "version": "[4.0.3, )"
             },
-            "BarCode": {
-              "target": "Package",
-              "version": "[2022.8.8024, )"
-            },
             "BarcodeLib": {
               "target": "Package",
               "version": "[2.4.0, )"

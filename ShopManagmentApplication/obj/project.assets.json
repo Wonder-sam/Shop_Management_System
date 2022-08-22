@@ -2,18 +2,6 @@
   "version": 3,
   "targets": {
     "net6.0-windows7.0": {
-      "BarCode/2022.8.8024": {
-        "type": "package",
-        "dependencies": {
-          "System.Drawing.Common": "5.0.2"
-        },
-        "compile": {
-          "lib/netstandard2.0/IronBarCode.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/IronBarCode.dll": {}
-        }
-      },
       "BarcodeLib/2.4.0": {
         "type": "package",
         "dependencies": {
@@ -325,26 +313,6 @@
     }
   },
   "libraries": {
-    "BarCode/2022.8.8024": {
-      "sha512": "i0hUc150FUQrKvTPjFm2omPwqDNToJQqXV/xKfvV2WRipckGCukTHlhQW2CyhVA/lTCtUU1kEOl/IMZ6/N/qiw==",
-      "type": "package",
-      "path": "barcode/2022.8.8024",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "EULA.txt",
-        "barcode.2022.8.8024.nupkg.sha512",
-        "barcode.nuspec",
-        "docs/README.md",
-        "images/iron-logo-128.png",
-        "lib/net40/IronBarCode.dll",
-        "lib/net40/IronBarCode.xml",
-        "lib/netstandard2.0/IronBarCode.dll",
-        "lib/netstandard2.0/IronBarCode.xml",
-        "readme-setup.txt",
-        "readme.txt"
-      ]
-    },
     "BarcodeLib/2.4.0": {
       "sha512": "SXMILkQm3jpngFmSa6AafsaJNid8UWCZh1v4w2oWxBzXnuVaL/S7H+nMxslWbPOPz1AVaLenRbFgy3OtX9J4dQ==",
       "type": "package",
@@ -1009,7 +977,6 @@
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
       "BCrypt.Net-Next >= 4.0.3",
-      "BarCode >= 2022.8.8024",
       "BarcodeLib >= 2.4.0",
       "MySql.Data >= 8.0.30",
       "QrCode.Net >= 0.4.0"
@@ -1057,10 +1024,6 @@
           "BCrypt.Net-Next": {
             "target": "Package",
             "version": "[4.0.3, )"
-          },
-          "BarCode": {
-            "target": "Package",
-            "version": "[2022.8.8024, )"
           },
           "BarcodeLib": {
             "target": "Package",
