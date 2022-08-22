@@ -1,6 +1,6 @@
 ﻿
-using ShopManagementApp.screens.admin;
-namespace ShopManagementApp.screens
+using ShopManagementApplication.screens.admin;
+namespace ShopManagementApplication.screens
 {
     internal class Login : Form
     {
@@ -146,11 +146,6 @@ namespace ShopManagementApp.screens
             admin.Tag = this;
             admin.Show(this);
 
-            //var login = (Login)Tag;
-            //login.Show();
-            //Close();
-
-
         }
 
         private void closeBtn_Enter(object sender, EventArgs e)
@@ -169,5 +164,7 @@ namespace ShopManagementApp.screens
             var login = (Login)Tag;
             login.Show();
         }
+
+      
     }
 }
