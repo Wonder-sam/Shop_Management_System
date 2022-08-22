@@ -44,9 +44,21 @@
               "target": "Package",
               "version": "[4.0.3, )"
             },
+            "BarCode": {
+              "target": "Package",
+              "version": "[2022.8.8024, )"
+            },
+            "BarcodeLib": {
+              "target": "Package",
+              "version": "[2.4.0, )"
+            },
             "MySql.Data": {
               "target": "Package",
               "version": "[8.0.30, )"
+            },
+            "QrCode.Net": {
+              "target": "Package",
+              "version": "[0.4.0, )"
             }
           },
           "imports": [
