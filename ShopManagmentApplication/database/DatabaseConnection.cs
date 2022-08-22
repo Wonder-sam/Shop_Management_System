@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
-namespace ShopManagementApp.database
+namespace ShopManagementApplication.database
 {
     internal class DatabaseConnection
     {
@@ -14,7 +14,7 @@ namespace ShopManagementApp.database
         {
             try
             {
-                String connectionString = "server=localhost;port=3306;database=tollbooth;uid=root;pwd=Mysqlpass@3306";
+                String connectionString = "server=localhost;port=3306;database=shoprite;uid=root;pwd=Mysqlpass@3306";
                 this.conn.ConnectionString = connectionString;
                 //open connection
                 conn.Open();
