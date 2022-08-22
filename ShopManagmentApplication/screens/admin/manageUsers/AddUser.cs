@@ -1,8 +1,9 @@
 ﻿
-using ShopManagementApp.database;
+using ShopManagementApplication.database;
 using MySql.Data.MySqlClient;
+using ShopManagementApplication.classes;
 
-namespace ShopManagementApp.screens.admin.manageUsers
+namespace ShopManagementApplication.screens.admin.manageUsers
 {
     internal class AddUser : UserControl
     {
@@ -26,11 +27,10 @@ namespace ShopManagementApp.screens.admin.manageUsers
         protected TextBox phoneTextField;
         private Label roleLabel;
         private ComboBox roleComboBox;
-        protected TextBox pincodeTextField;
-        private Label pincodeLabel;
-        private Button button1;
         private Button addUserBtn;
         private Panel addUserForm;
+        private Label usernameLabel;
+        private TextBox usernameTextField;
         public Label welcomeText;
 
         public AddUser()
@@ -60,11 +60,10 @@ namespace ShopManagementApp.screens.admin.manageUsers
             this.passwordLabel = new System.Windows.Forms.Label();
             this.passwordTextField = new System.Windows.Forms.TextBox();
             this.emailTextField = new System.Windows.Forms.TextBox();
-            this.pincodeTextField = new System.Windows.Forms.TextBox();
-            this.pincodeLabel = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.addUserBtn = new System.Windows.Forms.Button();
             this.addUserForm = new System.Windows.Forms.Panel();
+            this.usernameTextField = new System.Windows.Forms.TextBox();
+            this.usernameLabel = new System.Windows.Forms.Label();
             this.lastNameGroup.SuspendLayout();
             this.genderGroup.SuspendLayout();
             this.loginsGroup.SuspendLayout();
@@ -166,7 +165,7 @@ namespace ShopManagementApp.screens.admin.manageUsers
             this.genderGroup.Controls.Add(this.genderLabel);
             this.genderGroup.Controls.Add(this.roleComboBox);
             this.genderGroup.Controls.Add(this.genderComboBox);
-            this.genderGroup.Location = new System.Drawing.Point(14, 266);
+            this.genderGroup.Location = new System.Drawing.Point(14, 337);
             this.genderGroup.Name = "genderGroup";
             this.genderGroup.Size = new System.Drawing.Size(441, 154);
             this.genderGroup.TabIndex = 5;
@@ -175,13 +174,14 @@ namespace ShopManagementApp.screens.admin.manageUsers
             // 
             // dobPicker
             // 
-            this.dobPicker.CustomFormat = "mm/dd/yyy";
-            this.dobPicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dobPicker.CustomFormat = "dd/MM/yyyy";
+            this.dobPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dobPicker.Location = new System.Drawing.Point(228, 40);
             this.dobPicker.MinimumSize = new System.Drawing.Size(192, 32);
             this.dobPicker.Name = "dobPicker";
             this.dobPicker.Size = new System.Drawing.Size(192, 32);
             this.dobPicker.TabIndex = 7;
+            this.dobPicker.Value = new System.DateTime(2022, 8, 20, 16, 45, 15, 0);
             // 
             // phoneLabel
             // 
@@ -249,13 +249,15 @@ namespace ShopManagementApp.screens.admin.manageUsers
             // 
             // loginsGroup
             // 
+            this.loginsGroup.Controls.Add(this.usernameLabel);
             this.loginsGroup.Controls.Add(this.emailLabel);
             this.loginsGroup.Controls.Add(this.passwordLabel);
             this.loginsGroup.Controls.Add(this.passwordTextField);
+            this.loginsGroup.Controls.Add(this.usernameTextField);
             this.loginsGroup.Controls.Add(this.emailTextField);
             this.loginsGroup.Location = new System.Drawing.Point(14, 164);
             this.loginsGroup.Name = "loginsGroup";
-            this.loginsGroup.Size = new System.Drawing.Size(441, 96);
+            this.loginsGroup.Size = new System.Drawing.Size(441, 161);
             this.loginsGroup.TabIndex = 2;
             this.loginsGroup.TabStop = false;
             this.loginsGroup.Text = "Login Details";
@@ -304,44 +306,11 @@ namespace ShopManagementApp.screens.admin.manageUsers
             this.emailTextField.Size = new System.Drawing.Size(182, 32);
             this.emailTextField.TabIndex = 1;
             // 
-            // pincodeTextField
-            // 
-            this.pincodeTextField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pincodeTextField.Location = new System.Drawing.Point(52, 451);
-            this.pincodeTextField.MaximumSize = new System.Drawing.Size(175, 32);
-            this.pincodeTextField.MinimumSize = new System.Drawing.Size(175, 32);
-            this.pincodeTextField.Name = "pincodeTextField";
-            this.pincodeTextField.PlaceholderText = "pincode";
-            this.pincodeTextField.Size = new System.Drawing.Size(175, 32);
-            this.pincodeTextField.TabIndex = 1;
-            // 
-            // pincodeLabel
-            // 
-            this.pincodeLabel.AutoSize = true;
-            this.pincodeLabel.Location = new System.Drawing.Point(52, 444);
-            this.pincodeLabel.Name = "pincodeLabel";
-            this.pincodeLabel.Size = new System.Drawing.Size(53, 15);
-            this.pincodeLabel.TabIndex = 3;
-            this.pincodeLabel.Text = "Pincode:";
-            // 
-            // button1
-            // 
-            this.button1.AutoEllipsis = true;
-            this.button1.BackColor = System.Drawing.Color.RoyalBlue;
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(257, 465);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(123, 32);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Generate";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // addUserBtn
             // 
             this.addUserBtn.BackColor = System.Drawing.Color.MidnightBlue;
             this.addUserBtn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.addUserBtn.Location = new System.Drawing.Point(116, 501);
+            this.addUserBtn.Location = new System.Drawing.Point(115, 503);
             this.addUserBtn.Name = "addUserBtn";
             this.addUserBtn.Size = new System.Drawing.Size(213, 42);
             this.addUserBtn.TabIndex = 7;
@@ -353,23 +322,41 @@ namespace ShopManagementApp.screens.admin.manageUsers
             // 
             this.addUserForm.Controls.Add(this.addUserBtn);
             this.addUserForm.Controls.Add(this.welcomeText);
-            this.addUserForm.Controls.Add(this.button1);
             this.addUserForm.Controls.Add(this.genderGroup);
-            this.addUserForm.Controls.Add(this.pincodeLabel);
             this.addUserForm.Controls.Add(this.loginsGroup);
             this.addUserForm.Controls.Add(this.lastNameGroup);
-            this.addUserForm.Controls.Add(this.pincodeTextField);
             this.addUserForm.Location = new System.Drawing.Point(107, 13);
             this.addUserForm.Name = "addUserForm";
-            this.addUserForm.Size = new System.Drawing.Size(472, 575);
+            this.addUserForm.Size = new System.Drawing.Size(472, 561);
             this.addUserForm.TabIndex = 8;
+            // 
+            // usernameTextField
+            // 
+            this.usernameTextField.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.usernameTextField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.usernameTextField.Location = new System.Drawing.Point(16, 110);
+            this.usernameTextField.MinimumSize = new System.Drawing.Size(175, 32);
+            this.usernameTextField.Name = "usernameTextField";
+            this.usernameTextField.PlaceholderText = "Username";
+            this.usernameTextField.Size = new System.Drawing.Size(182, 32);
+            this.usernameTextField.TabIndex = 1;
+            // 
+            // usernameLabel
+            // 
+            this.usernameLabel.AutoSize = true;
+            this.usernameLabel.Location = new System.Drawing.Point(16, 88);
+            this.usernameLabel.Name = "usernameLabel";
+            this.usernameLabel.Size = new System.Drawing.Size(63, 15);
+            this.usernameLabel.TabIndex = 3;
+            this.usernameLabel.Text = "Username:";
             // 
             // AddUser
             // 
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.addUserForm);
             this.Name = "AddUser";
-            this.Size = new System.Drawing.Size(700, 591);
+            this.Size = new System.Drawing.Size(700, 602);
             this.lastNameGroup.ResumeLayout(false);
             this.lastNameGroup.PerformLayout();
             this.genderGroup.ResumeLayout(false);
@@ -388,40 +375,18 @@ namespace ShopManagementApp.screens.admin.manageUsers
             string fname = firstNamesTextField.Text;
             string lname = lastNameTextField.Text;
             string gender = genderComboBox.Text;
-            string pincode = pincodeTextField.Text;
+            string username = usernameTextField.Text;
             string role = roleComboBox.Text;
             string email = emailTextField.Text;
             string password = passwordTextField.Text;
             string passwordHash = BCrypt.Net.BCrypt.HashPassword(password);
             string dob = dobPicker.Text;
             string phone = phoneTextField.Text;
-            CreateUser(fname, email, passwordHash, dob, gender, role, phone, pincode);
+            Console.WriteLine(dob);
+            User newUser = new User(fname, lname, gender, username, role, dob, email, passwordHash, phone, false); ;
+            newUser.CreateUser();
 
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Random random = new Random();
-            int pincode = random.Next(1000, 9999);
-            pincodeTextField.Text = pincode.ToString();
-        }
-
-        public void CreateUser(string name, string email, string password, string dob, string gender, string role, string phone, string pincode)
-        {
-            String insertQuery = $"INSERT INTO users(name, role, dob, email, password, phone, gender, photo, pincode)" +
-                                $" VALUES('{name}','{role}',STR_TO_DATE('{dob}','%m/%d/%Y'),'{email}','{password}','{phone}','{gender}','fishfdlhgslkfghsfhsdl',{pincode})";
-            try
-            {
-                MySqlCommand cmd = new(insertQuery, connection.conn);
-
-                cmd.ExecuteNonQuery();
-                //ReadKey();
-            }
-            catch (Exception e)
-            {
-                //WriteLine(e.Message);
-                //ReadKey();
-            }
+        
         }
 
     }
