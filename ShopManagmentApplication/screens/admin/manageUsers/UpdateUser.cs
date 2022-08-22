@@ -1,13 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
+using ShopManagementApplication.classes;
+using ShopManagementApplication.database;
 
-namespace ShopManagementApp.screens.admin.manageUsers
+namespace ShopManagementApplication.screens.admin.manageUsers
 {
     internal class UpdateUser : UserControl
     {
+        readonly static DatabaseConnection connection = new();
         private Label updateUserHeader;
         private Label usernameLabel;
         private Button button1;
@@ -111,6 +116,7 @@ namespace ShopManagementApp.screens.admin.manageUsers
             this.button1.TabIndex = 3;
             this.button1.Text = "Search";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // findUserGroup
             // 
@@ -349,6 +355,7 @@ namespace ShopManagementApp.screens.admin.manageUsers
             this.updateBtn.TabIndex = 6;
             this.updateBtn.Text = "Update";
             this.updateBtn.UseVisualStyleBackColor = false;
+            this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
             // 
             // UpdateUser
             // 
@@ -376,5 +383,46 @@ namespace ShopManagementApp.screens.admin.manageUsers
         {
 
         }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string username = usernameTextField.Text;
+            User targetUser = User.GetUser(username);
+            if (targetUser == null)
+            {
+                MessageBox.Show("User doesnt exist");
+            }
+            else
+            {
+                firstNameTextField.Text = targetUser.FirstNames;
+                lastNameTextField.Text = targetUser.LastName;
+                usernameTextField.Text = targetUser.Username;
+                genderComboBox.Text = targetUser.Gender;
+                roleComboBox.Text = targetUser.Role;
+                emailTextField.Text = targetUser.Email;
+                passwordTextField.Text = targetUser.Password;
+                dobDatetimePicker.Text = targetUser.Dob.ToString();
+                phoneTextField.Text = targetUser.Phone;
+            }
+
+           
+        }
+
+        private void updateBtn_Click(object sender, EventArgs e)
+        {
+            string fname = firstNameTextField.Text;
+            string lname = lastNameTextField.Text;
+            string username = usernameTextField.Text.Trim();
+            string gender = genderComboBox.Text;
+            string role = roleComboBox.Text;
+            string email = emailTextField.Text;
+            string password = passwordTextField.Text;
+            string passwordHash = BCrypt.Net.BCrypt.HashPassword(password);
+            string dob = dobDatetimePicker.Text;
+            string phone = phoneTextField.Text;
+
+            User newUser = new User(fname, lname, gender, username, role, dob, email, phone, false); ;
+            newUser.UpdateUser();
+        }
+  
     }
 }
