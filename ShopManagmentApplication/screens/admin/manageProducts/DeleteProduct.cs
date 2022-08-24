@@ -248,7 +248,7 @@ namespace ShopManagementApplication.screens.admin.manageProducts
             this.Controls.Add(this.productDetailsGroup);
             this.Controls.Add(this.removeProductHeader);
             this.Name = "DeleteProduct";
-            this.Size = new System.Drawing.Size(830, 634);
+            this.Size = new System.Drawing.Size(951, 634);
             this.findUserGroup.ResumeLayout(false);
             this.findUserGroup.PerformLayout();
             this.productDetailsGroup.ResumeLayout(false);

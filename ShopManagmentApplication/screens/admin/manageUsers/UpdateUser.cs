@@ -364,7 +364,7 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             this.Controls.Add(this.findUserGroup);
             this.Controls.Add(this.updateUserHeader);
             this.Name = "UpdateUser";
-            this.Size = new System.Drawing.Size(689, 614);
+            this.Size = new System.Drawing.Size(951, 614);
             this.findUserGroup.ResumeLayout(false);
             this.findUserGroup.PerformLayout();
             this.foundUserGroup.ResumeLayout(false);

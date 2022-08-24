@@ -276,7 +276,7 @@ namespace ShopManagementApplication.screens.admin.manageProducts
             this.Controls.Add(this.addProductHeader);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "AddProduct";
-            this.Size = new System.Drawing.Size(830, 668);
+            this.Size = new System.Drawing.Size(951, 668);
             this.productDetailsGroup.ResumeLayout(false);
             this.productDetailsGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inStockNumberField)).EndInit();

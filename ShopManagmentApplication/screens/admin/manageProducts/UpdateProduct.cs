@@ -267,7 +267,7 @@ namespace ShopManagementApplication.screens.admin.manageProducts
             this.Controls.Add(this.productDetailsGroup);
             this.Controls.Add(this.updateProductHeader);
             this.Name = "UpdateProduct";
-            this.Size = new System.Drawing.Size(830, 634);
+            this.Size = new System.Drawing.Size(951, 634);
             this.productDetailsGroup.ResumeLayout(false);
             this.productDetailsGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inStockNumberField)).EndInit();

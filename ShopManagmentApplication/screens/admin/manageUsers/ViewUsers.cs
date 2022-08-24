@@ -9,13 +9,14 @@ namespace ShopManagementApplication.screens.admin.manageUsers
 {
     internal class ViewUsers : UserControl
     {
-        private Label nameHeader;
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
+        private Label lastnameHeader;
+        private Label firstnameHeader;
+        private Label usernameHead;
+        private Label gender;
+        private Label emailHeader;
         private Label label5;
-        private Label label6;
+        private Label roleHeader;
+        private Label phoneHeader;
         private TableLayoutPanel usersTable;
 
         public ViewUsers()
@@ -27,13 +28,14 @@ namespace ShopManagementApplication.screens.admin.manageUsers
         private void InitializeComponent()
         {
             this.usersTable = new System.Windows.Forms.TableLayoutPanel();
-            this.nameHeader = new System.Windows.Forms.Label();
+            this.lastnameHeader = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.firstnameHeader = new System.Windows.Forms.Label();
+            this.roleHeader = new System.Windows.Forms.Label();
+            this.usernameHead = new System.Windows.Forms.Label();
+            this.emailHeader = new System.Windows.Forms.Label();
+            this.gender = new System.Windows.Forms.Label();
+            this.phoneHeader = new System.Windows.Forms.Label();
             this.usersTable.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,7 +43,7 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             // 
             this.usersTable.AutoSize = true;
             this.usersTable.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.usersTable.ColumnCount = 7;
+            this.usersTable.ColumnCount = 8;
             this.usersTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.usersTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.usersTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -49,32 +51,34 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             this.usersTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.usersTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.usersTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.usersTable.Controls.Add(this.nameHeader, 0, 0);
+            this.usersTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.usersTable.Controls.Add(this.lastnameHeader, 0, 0);
             this.usersTable.Controls.Add(this.label5, 5, 0);
-            this.usersTable.Controls.Add(this.label1, 1, 0);
-            this.usersTable.Controls.Add(this.label6, 6, 0);
-            this.usersTable.Controls.Add(this.label2, 2, 0);
-            this.usersTable.Controls.Add(this.label4, 3, 0);
-            this.usersTable.Controls.Add(this.label3, 4, 0);
+            this.usersTable.Controls.Add(this.firstnameHeader, 1, 0);
+            this.usersTable.Controls.Add(this.roleHeader, 6, 0);
+            this.usersTable.Controls.Add(this.usernameHead, 2, 0);
+            this.usersTable.Controls.Add(this.emailHeader, 3, 0);
+            this.usersTable.Controls.Add(this.gender, 4, 0);
+            this.usersTable.Controls.Add(this.phoneHeader, 7, 0);
             this.usersTable.Location = new System.Drawing.Point(44, 69);
             this.usersTable.Name = "usersTable";
             this.usersTable.RowCount = 1;
             this.usersTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.usersTable.Size = new System.Drawing.Size(378, 54);
+            this.usersTable.Size = new System.Drawing.Size(501, 54);
             this.usersTable.TabIndex = 0;
             // 
-            // nameHeader
+            // lastnameHeader
             // 
-            this.nameHeader.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lastnameHeader.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.nameHeader.AutoSize = true;
-            this.nameHeader.Location = new System.Drawing.Point(4, 1);
-            this.nameHeader.Name = "nameHeader";
-            this.nameHeader.Size = new System.Drawing.Size(39, 52);
-            this.nameHeader.TabIndex = 0;
-            this.nameHeader.Text = "Name";
-            this.nameHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lastnameHeader.AutoSize = true;
+            this.lastnameHeader.Location = new System.Drawing.Point(4, 1);
+            this.lastnameHeader.Name = "lastnameHeader";
+            this.lastnameHeader.Size = new System.Drawing.Size(63, 52);
+            this.lastnameHeader.TabIndex = 0;
+            this.lastnameHeader.Text = "Last Name";
+            this.lastnameHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
             // 
@@ -82,85 +86,98 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(230, 1);
+            this.label5.Location = new System.Drawing.Point(307, 1);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(73, 52);
             this.label5.TabIndex = 5;
             this.label5.Text = "Date of Birth";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label1
+            // firstnameHeader
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.firstnameHeader.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(50, 1);
-            this.label1.MaximumSize = new System.Drawing.Size(80, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 52);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Email";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.firstnameHeader.AutoSize = true;
+            this.firstnameHeader.Location = new System.Drawing.Point(74, 1);
+            this.firstnameHeader.MaximumSize = new System.Drawing.Size(80, 0);
+            this.firstnameHeader.Name = "firstnameHeader";
+            this.firstnameHeader.Size = new System.Drawing.Size(64, 52);
+            this.firstnameHeader.TabIndex = 1;
+            this.firstnameHeader.Text = "First Name";
+            this.firstnameHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label6
+            // roleHeader
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.roleHeader.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(310, 1);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(64, 52);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Pincode";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.roleHeader.AutoSize = true;
+            this.roleHeader.Location = new System.Drawing.Point(387, 1);
+            this.roleHeader.Name = "roleHeader";
+            this.roleHeader.Size = new System.Drawing.Size(30, 52);
+            this.roleHeader.TabIndex = 6;
+            this.roleHeader.Text = "Role";
+            this.roleHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
+            // usernameHead
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.usernameHead.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(93, 1);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 52);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Gender";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.usernameHead.AutoSize = true;
+            this.usernameHead.Location = new System.Drawing.Point(145, 1);
+            this.usernameHead.Name = "usernameHead";
+            this.usernameHead.Size = new System.Drawing.Size(60, 52);
+            this.usernameHead.TabIndex = 2;
+            this.usernameHead.Text = "Username";
+            this.usernameHead.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label4
+            // emailHeader
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.emailHeader.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(145, 1);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(30, 52);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Role";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.emailHeader.AutoSize = true;
+            this.emailHeader.Location = new System.Drawing.Point(212, 1);
+            this.emailHeader.Name = "emailHeader";
+            this.emailHeader.Size = new System.Drawing.Size(36, 52);
+            this.emailHeader.TabIndex = 4;
+            this.emailHeader.Text = "Email";
+            this.emailHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label3
+            // gender
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.gender.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(182, 1);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 52);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Phone";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.gender.AutoSize = true;
+            this.gender.Location = new System.Drawing.Point(255, 1);
+            this.gender.Name = "gender";
+            this.gender.Size = new System.Drawing.Size(45, 52);
+            this.gender.TabIndex = 3;
+            this.gender.Text = "Gender";
+            this.gender.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // phoneHeader
+            // 
+            this.phoneHeader.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.phoneHeader.AutoSize = true;
+            this.phoneHeader.Location = new System.Drawing.Point(424, 1);
+            this.phoneHeader.Name = "phoneHeader";
+            this.phoneHeader.Size = new System.Drawing.Size(73, 52);
+            this.phoneHeader.TabIndex = 8;
+            this.phoneHeader.Text = "Phone";
+            this.phoneHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ViewUsers
             // 
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.usersTable);
             this.Name = "ViewUsers";
-            this.Size = new System.Drawing.Size(807, 428);
+            this.Size = new System.Drawing.Size(951, 602);
             this.usersTable.ResumeLayout(false);
             this.usersTable.PerformLayout();
             this.ResumeLayout(false);

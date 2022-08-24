@@ -56,14 +56,14 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             this.genderLabel = new System.Windows.Forms.Label();
             this.roleComboBox = new System.Windows.Forms.ComboBox();
             this.loginsGroup = new System.Windows.Forms.GroupBox();
+            this.usernameLabel = new System.Windows.Forms.Label();
             this.emailLabel = new System.Windows.Forms.Label();
             this.passwordLabel = new System.Windows.Forms.Label();
             this.passwordTextField = new System.Windows.Forms.TextBox();
+            this.usernameTextField = new System.Windows.Forms.TextBox();
             this.emailTextField = new System.Windows.Forms.TextBox();
             this.addUserBtn = new System.Windows.Forms.Button();
             this.addUserForm = new System.Windows.Forms.Panel();
-            this.usernameTextField = new System.Windows.Forms.TextBox();
-            this.usernameLabel = new System.Windows.Forms.Label();
             this.lastNameGroup.SuspendLayout();
             this.genderGroup.SuspendLayout();
             this.loginsGroup.SuspendLayout();
@@ -262,6 +262,15 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             this.loginsGroup.TabStop = false;
             this.loginsGroup.Text = "Login Details";
             // 
+            // usernameLabel
+            // 
+            this.usernameLabel.AutoSize = true;
+            this.usernameLabel.Location = new System.Drawing.Point(16, 88);
+            this.usernameLabel.Name = "usernameLabel";
+            this.usernameLabel.Size = new System.Drawing.Size(63, 15);
+            this.usernameLabel.TabIndex = 3;
+            this.usernameLabel.Text = "Username:";
+            // 
             // emailLabel
             // 
             this.emailLabel.AutoSize = true;
@@ -293,6 +302,18 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             this.passwordTextField.PlaceholderText = "Password";
             this.passwordTextField.Size = new System.Drawing.Size(175, 32);
             this.passwordTextField.TabIndex = 1;
+            // 
+            // usernameTextField
+            // 
+            this.usernameTextField.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.usernameTextField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.usernameTextField.Location = new System.Drawing.Point(16, 110);
+            this.usernameTextField.MinimumSize = new System.Drawing.Size(175, 32);
+            this.usernameTextField.Name = "usernameTextField";
+            this.usernameTextField.PlaceholderText = "Username";
+            this.usernameTextField.Size = new System.Drawing.Size(182, 32);
+            this.usernameTextField.TabIndex = 1;
             // 
             // emailTextField
             // 
@@ -330,33 +351,12 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             this.addUserForm.Size = new System.Drawing.Size(472, 561);
             this.addUserForm.TabIndex = 8;
             // 
-            // usernameTextField
-            // 
-            this.usernameTextField.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.usernameTextField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.usernameTextField.Location = new System.Drawing.Point(16, 110);
-            this.usernameTextField.MinimumSize = new System.Drawing.Size(175, 32);
-            this.usernameTextField.Name = "usernameTextField";
-            this.usernameTextField.PlaceholderText = "Username";
-            this.usernameTextField.Size = new System.Drawing.Size(182, 32);
-            this.usernameTextField.TabIndex = 1;
-            // 
-            // usernameLabel
-            // 
-            this.usernameLabel.AutoSize = true;
-            this.usernameLabel.Location = new System.Drawing.Point(16, 88);
-            this.usernameLabel.Name = "usernameLabel";
-            this.usernameLabel.Size = new System.Drawing.Size(63, 15);
-            this.usernameLabel.TabIndex = 3;
-            this.usernameLabel.Text = "Username:";
-            // 
             // AddUser
             // 
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.addUserForm);
             this.Name = "AddUser";
-            this.Size = new System.Drawing.Size(700, 602);
+            this.Size = new System.Drawing.Size(951, 602);
             this.lastNameGroup.ResumeLayout(false);
             this.lastNameGroup.PerformLayout();
             this.genderGroup.ResumeLayout(false);

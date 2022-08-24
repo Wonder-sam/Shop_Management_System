@@ -311,7 +311,7 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             this.Controls.Add(this.foundUserGroup);
             this.Controls.Add(this.findUserGroup);
             this.Name = "DeleteUser";
-            this.Size = new System.Drawing.Size(661, 588);
+            this.Size = new System.Drawing.Size(951, 588);
             this.findUserGroup.ResumeLayout(false);
             this.findUserGroup.PerformLayout();
             this.foundUserGroup.ResumeLayout(false);
