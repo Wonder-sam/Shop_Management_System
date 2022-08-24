@@ -101,7 +101,7 @@ namespace ShopManagementApplication.classes
         {
             connection = new();
             String insertQuery = $"INSERT INTO products(productName, productCategory, productPrice, reorderLevel, expiryDate, barcode, available)" +
-                                $" VALUES('{ProductName}','{productCategory}',{ProductPrice},{ReorderLevel},STR_TO_DATE('{ExpiryDate}','%m/%d/%Y'),'{Barcode}')";
+                                $" VALUES('{ProductName}','{productCategory}',{ProductPrice},{ReorderLevel},STR_TO_DATE('{ExpiryDate}','%m/%d/%Y'),'{Barcode}', {1})";
             try
             {
                 MySqlCommand cmd = new(insertQuery, connection.conn);
@@ -118,7 +118,7 @@ namespace ShopManagementApplication.classes
         {
             connection = new();
             string updateQuery = $"UPDATE products SET productName ='{ProductName}', productCategory='{ProductCategory}', " +
-                $"expiryDate=STR_TO_DATE('{ExpiryDate}','%m/%d/%Y'), reorderLevel='{ReorderLevel}' WHERE barcode={Barcode}";
+                $"expiryDate=STR_TO_DATE('{ExpiryDate}','%m/%d/%Y'), reorderLevel='{ReorderLevel}' WHERE barcode='{Barcode}'";
 
             try
             {
@@ -137,7 +137,7 @@ namespace ShopManagementApplication.classes
         public static void RemoveProduct(string barcode)
         {
             DatabaseConnection connection = new();
-            string removeQuery = $"DELETE FROM prodcuts WHERE barcode = {barcode}";
+            string removeQuery = $"DELETE FROM prodcuts WHERE barcode = '{barcode}'";
             try
             {
                 MySqlCommand cmd = new(removeQuery, connection.conn);
@@ -227,7 +227,7 @@ namespace ShopManagementApplication.classes
         public static Product? GetProduct(string barcode)
         {
             DatabaseConnection connection = new();
-            string selectQuery = $"SELECT * FROM products WHERE barcode = {barcode}";
+            string selectQuery = $"SELECT * FROM products WHERE barcode = '{barcode}'";
             try
             {
                 MySqlCommand cmd = new(selectQuery, connection.conn);

@@ -149,8 +149,8 @@ namespace ShopManagementApplication.classes
         {
             connection = new();
             WriteLine(dob);
-            String insertQuery = $"INSERT INTO users(lastName, firstNames, username, role, dob, email, password, phone, gender, privileged)" +
-                                $" VALUES('{LastName}','{FirstNames}','{role}', { Username}, STR_TO_DATE('{dob}','%m/%d/%Y'),'{Email}','{password}','{Phone}','{gender}',{Privileged})";
+            String insertQuery = $"INSERT INTO users(lastName, firstNames, role, username, dob, email, password, phone, gender, privileged)" +
+                                $" VALUES('{LastName}','{FirstNames}','{role}', '{ Username}', STR_TO_DATE('{dob}','%m/%d/%Y'),'{Email}','{password}','{Phone}','{gender}',{Privileged})";
             try
             {
                 MySqlCommand cmd = new(insertQuery, connection.conn);
@@ -168,7 +168,7 @@ namespace ShopManagementApplication.classes
             connection = new();
             string updateQuery = $"UPDATE users SET firstNames ='{FirstNames}', lastName = '{LastName}', email='{Email}'," +
                 $" dob=STR_TO_DATE('{Dob}','%m/%d/%Y'), phone='{Phone}', gender='{Gender}', role = '{Role}'" +
-                $" WHERE username={Username}";
+                $" WHERE username='{Username}'";
 
             try
             {
@@ -187,7 +187,7 @@ namespace ShopManagementApplication.classes
         public static void RemoveUser(string username)
         {
             DatabaseConnection connection = new();
-            string removeQuery = $"DELETE FROM users WHERE username = {username}";
+            string removeQuery = $"DELETE FROM users WHERE username = '{username}'";
             try
             {
                 MySqlCommand cmd = new(removeQuery, connection.conn);
@@ -221,7 +221,17 @@ namespace ShopManagementApplication.classes
                     usersTable.RowCount += 1;
                     Label label0 = new()
                     {
-                        Text = row["name"].ToString()!,
+                        Text = row["lastName"].ToString()!,
+                    };
+
+                    Label label7 = new()
+                    {
+                        Text = row["firstNames"].ToString()!,
+                    };
+
+                    Label label8 = new()
+                    {
+                        Text = row["username"].ToString()!,
                     };
 
                     Label label1 = new()
@@ -250,19 +260,14 @@ namespace ShopManagementApplication.classes
                         Text = row["dob"].ToString()!,
                     };
 
-                    Label label6 = new()
-                    {
-                        Text = row["pincode"].ToString()!,
-                    };
-
-
                     usersTable.Controls.Add(label0, 0, usersTable.RowCount - 1);
                     usersTable.Controls.Add(label5, 5, usersTable.RowCount - 1);
-                    usersTable.Controls.Add(label1, 1, usersTable.RowCount - 1);
-                    usersTable.Controls.Add(label6, 6, usersTable.RowCount - 1);
-                    usersTable.Controls.Add(label2, 2, usersTable.RowCount - 1);
-                    usersTable.Controls.Add(label4, 4, usersTable.RowCount - 1);
-                    usersTable.Controls.Add(label3, 3, usersTable.RowCount - 1);
+                    usersTable.Controls.Add(label7, 1, usersTable.RowCount - 1);
+                    usersTable.Controls.Add(label3, 6, usersTable.RowCount - 1);
+                    usersTable.Controls.Add(label8, 2, usersTable.RowCount - 1);
+                    usersTable.Controls.Add(label2, 4, usersTable.RowCount - 1);
+                    usersTable.Controls.Add(label1, 3, usersTable.RowCount - 1);
+                    usersTable.Controls.Add(label4, 7, usersTable.RowCount - 1);
                 }
                 reader.Close();
 
@@ -277,7 +282,7 @@ namespace ShopManagementApplication.classes
         public static User? GetUser(string username)
         {
             DatabaseConnection connection = new();
-            string selectQuery = $"SELECT * FROM users WHERE username = {username}";
+            string selectQuery = $"SELECT * FROM users WHERE username = '{username}'";
             try
             {
                 MySqlCommand cmd = new(selectQuery, connection.conn);
