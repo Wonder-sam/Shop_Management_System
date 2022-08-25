@@ -32,11 +32,11 @@ namespace ShopManagementApplication.screens
         {
             InitializeComponent();
             this.panel1!.Region = Region.FromHrgn(CreateRoundedRectRgn(0, 0, this.panel1.Width, this.panel1.Height, 20, 20));
+            this.usernameTextField.Focus();
         }
 
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.panel1 = new System.Windows.Forms.Panel();
             this.loginBtn = new System.Windows.Forms.Button();
             this.passwordLabel = new System.Windows.Forms.Label();
@@ -73,7 +73,7 @@ namespace ShopManagementApplication.screens
             this.loginBtn.Location = new System.Drawing.Point(69, 249);
             this.loginBtn.Name = "loginBtn";
             this.loginBtn.Size = new System.Drawing.Size(251, 37);
-            this.loginBtn.TabIndex = 3;
+            this.loginBtn.TabIndex = 2;
             this.loginBtn.Text = "LOGIN";
             this.loginBtn.UseVisualStyleBackColor = false;
             this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
@@ -121,7 +121,7 @@ namespace ShopManagementApplication.screens
             this.usernameTextField.Name = "usernameTextField";
             this.usernameTextField.PlaceholderText = "Username";
             this.usernameTextField.Size = new System.Drawing.Size(251, 30);
-            this.usernameTextField.TabIndex = 1;
+            this.usernameTextField.TabIndex = 0;
             // 
             // loginLabel
             // 
@@ -155,7 +155,6 @@ namespace ShopManagementApplication.screens
             // Login
             // 
             this.BackColor = System.Drawing.Color.White;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(689, 556);
             this.Controls.Add(this.closeBtn);
@@ -235,6 +234,5 @@ namespace ShopManagementApplication.screens
             login.Show();
         }
 
-      
     }
 }
