@@ -291,6 +291,7 @@ namespace ShopManagementApplication.classes
                 {
                     DateTime date = DateTime.ParseExact(reader["dob"].ToString()!, "M/d/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
                     string dateString = date.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+
                     return new User(reader["firstNames"].ToString()!, reader["lastName"].ToString()!, reader["gender"].ToString()!,
                         "wonder", reader["role"].ToString()!, dateString, reader["email"].ToString()!,
                         reader["password"].ToString()!, reader["phone"].ToString()!, bool.Parse(reader["privileged"].ToString()!));
