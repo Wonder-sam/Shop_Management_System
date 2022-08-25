@@ -25,6 +25,19 @@ namespace ShopManagementApplication.classes
             this.available = true;
         }
 
+        public Product(int pid, string productName, int inStock, float productPrice, string productCategory, string barcode, int reorderLevel, string expiryDate)
+        {
+            this.pid = pid;
+            this.productName = productName;
+            this.inStock = inStock;
+            this.productPrice = productPrice;
+            this.productCategory = productCategory;
+            this.barcode = barcode;
+            this.reorderLevel = reorderLevel;
+            this.expiryDate = DateOnly.Parse(expiryDate, new CultureInfo("fr-FR"));
+            this.available = true;
+        }
+
         private int pid;
 
         public int Pid
@@ -236,7 +249,7 @@ namespace ShopManagementApplication.classes
                 {
                     DateTime date = DateTime.ParseExact(reader["expiryDate"].ToString()!, "M/d/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
                     string dateString = date.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
-                    return new Product(reader["productName"].ToString()!, 1, float.Parse(reader["productPrice"].ToString()!),
+                    return new Product(int.Parse(reader["pid"].ToString()!), reader["productName"].ToString()!, 1, float.Parse(reader["productPrice"].ToString()!),
                         reader["productCategory"].ToString()!, reader["barcode"].ToString()!, int.Parse(reader["reorderLevel"].ToString()!),
                         dateString);
 
