@@ -142,13 +142,16 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             // genderComboBox
             // 
             this.genderComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.genderComboBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.genderComboBox.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.genderComboBox.FormattingEnabled = true;
             this.genderComboBox.ItemHeight = 26;
             this.genderComboBox.Items.AddRange(new object[] {
             "Male",
-            "Femal"});
+            "Female"});
             this.genderComboBox.Location = new System.Drawing.Point(16, 40);
             this.genderComboBox.MaximumSize = new System.Drawing.Size(175, 0);
+            this.genderComboBox.MaxLength = 2;
             this.genderComboBox.MinimumSize = new System.Drawing.Size(175, 0);
             this.genderComboBox.Name = "genderComboBox";
             this.genderComboBox.Size = new System.Drawing.Size(175, 32);
@@ -233,19 +236,19 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             // roleComboBox
             // 
             this.roleComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.roleComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.roleComboBox.FormattingEnabled = true;
             this.roleComboBox.ItemHeight = 26;
             this.roleComboBox.Items.AddRange(new object[] {
             "Admin",
-            "Supervisor",
             "Attendant"});
             this.roleComboBox.Location = new System.Drawing.Point(17, 102);
             this.roleComboBox.MaximumSize = new System.Drawing.Size(175, 0);
+            this.roleComboBox.MaxLength = 2;
             this.roleComboBox.MinimumSize = new System.Drawing.Size(175, 0);
             this.roleComboBox.Name = "roleComboBox";
             this.roleComboBox.Size = new System.Drawing.Size(175, 32);
             this.roleComboBox.TabIndex = 4;
-            this.roleComboBox.Text = "Attendant";
             // 
             // loginsGroup
             // 
