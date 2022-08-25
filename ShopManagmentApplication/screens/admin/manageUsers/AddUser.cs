@@ -141,10 +141,12 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             // 
             // genderComboBox
             // 
-            this.genderComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.genderComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.genderComboBox.DropDownHeight = 80;
             this.genderComboBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.genderComboBox.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.genderComboBox.FormattingEnabled = true;
+            this.genderComboBox.IntegralHeight = false;
             this.genderComboBox.ItemHeight = 26;
             this.genderComboBox.Items.AddRange(new object[] {
             "Male",
@@ -157,6 +159,7 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             this.genderComboBox.Size = new System.Drawing.Size(175, 32);
             this.genderComboBox.TabIndex = 4;
             this.genderComboBox.Text = "Male";
+            this.genderComboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.genderComboBox_DrawItem);
             // 
             // genderGroup
             // 
@@ -236,7 +239,6 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             // roleComboBox
             // 
             this.roleComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.roleComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.roleComboBox.FormattingEnabled = true;
             this.roleComboBox.ItemHeight = 26;
             this.roleComboBox.Items.AddRange(new object[] {
@@ -249,6 +251,8 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             this.roleComboBox.Name = "roleComboBox";
             this.roleComboBox.Size = new System.Drawing.Size(175, 32);
             this.roleComboBox.TabIndex = 4;
+            this.roleComboBox.Text = "Attendant";
+            this.roleComboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.roleComboBox_DrawItem);
             // 
             // loginsGroup
             // 
@@ -392,5 +396,18 @@ namespace ShopManagementApplication.screens.admin.manageUsers
         
         }
 
+        private void roleComboBox_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            e.DrawBackground();
+            if (e.Index > -1)
+                e.Graphics.DrawString(roleComboBox.Items[e.Index].ToString(), e.Font, new SolidBrush(e.ForeColor), e.Bounds);
+        }
+
+        private void genderComboBox_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            e.DrawBackground();
+            if (e.Index > -1)
+                e.Graphics.DrawString(genderComboBox.Items[e.Index].ToString(), e.Font, new SolidBrush(e.ForeColor), e.Bounds);
+        }
     }
 }
