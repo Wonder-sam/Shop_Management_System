@@ -35,6 +35,10 @@ namespace ShopManagementApplication.screens.admin.manageProducts
         {
             InitializeComponent();
             this.inStockNumberField.Controls.RemoveAt(0);
+            string enumQuery = $"SELECT COLUMN_TYPE as AllPossibleEnumValues FROM INFORMATION_SCHEMA.COLUMNS " +
+                $"WHERE TABLE_SCHEMA = 'shoprite' AND TABLE_NAME = 'productCategories' AND COLUMN_NAME = 'productCategory'";
+
+
         }
 
         private void InitializeComponent()
@@ -118,6 +122,7 @@ namespace ShopManagementApplication.screens.admin.manageProducts
             this.productCategoryComboBox.Name = "productCategoryComboBox";
             this.productCategoryComboBox.Size = new System.Drawing.Size(197, 32);
             this.productCategoryComboBox.TabIndex = 5;
+            this.productCategoryComboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.productCategoryComboBox_DrawItem);
             // 
             // expiryDatePicker
             // 
@@ -320,6 +325,13 @@ namespace ShopManagementApplication.screens.admin.manageProducts
 
             newProduct.AddProduct();
 
+        }
+
+        private void productCategoryComboBox_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            e.DrawBackground();
+            if (e.Index > -1)
+                e.Graphics.DrawString(productCategoryComboBox.Items[e.Index].ToString(), e.Font, new SolidBrush(e.ForeColor), e.Bounds);
         }
     }
 }
