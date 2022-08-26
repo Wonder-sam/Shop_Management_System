@@ -6,7 +6,7 @@ namespace ShopManagementApplication
     {
         public static void Main(string[] args)
         {
-            Application.Run(new Login());
+            Application.Run(new LoginScreen());
         }
     }
 }
