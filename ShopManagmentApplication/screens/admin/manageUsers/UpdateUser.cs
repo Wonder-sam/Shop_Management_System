@@ -89,6 +89,7 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             // usernameLabel
             // 
             this.usernameLabel.AutoSize = true;
+            this.usernameLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.usernameLabel.Location = new System.Drawing.Point(20, 30);
             this.usernameLabel.Name = "usernameLabel";
             this.usernameLabel.Size = new System.Drawing.Size(63, 15);
@@ -101,7 +102,6 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             this.usernameTextField.Location = new System.Drawing.Point(20, 49);
             this.usernameTextField.MinimumSize = new System.Drawing.Size(203, 32);
             this.usernameTextField.Name = "usernameTextField";
-            this.usernameTextField.PlaceholderText = "Username";
             this.usernameTextField.Size = new System.Drawing.Size(203, 32);
             this.usernameTextField.TabIndex = 2;
             // 
@@ -171,6 +171,7 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             this.roleComboBox.Size = new System.Drawing.Size(203, 32);
             this.roleComboBox.TabIndex = 4;
             this.roleComboBox.Text = "Attendant";
+            this.roleComboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.roleComboBox_DrawItem);
             // 
             // genderComboBox
             // 
@@ -185,10 +186,12 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             this.genderComboBox.Size = new System.Drawing.Size(203, 32);
             this.genderComboBox.TabIndex = 4;
             this.genderComboBox.Text = "Male";
+            this.genderComboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.genderComboBox_DrawItem);
             // 
             // dobDatetimePicker
             // 
-            this.dobDatetimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dobDatetimePicker.CustomFormat = "dd/MM/yyyy";
+            this.dobDatetimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dobDatetimePicker.Location = new System.Drawing.Point(229, 186);
             this.dobDatetimePicker.MinimumSize = new System.Drawing.Size(203, 32);
             this.dobDatetimePicker.Name = "dobDatetimePicker";
@@ -198,6 +201,7 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             // genderLabel
             // 
             this.genderLabel.AutoSize = true;
+            this.genderLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.genderLabel.Location = new System.Drawing.Point(20, 234);
             this.genderLabel.Name = "genderLabel";
             this.genderLabel.Size = new System.Drawing.Size(48, 15);
@@ -208,6 +212,7 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             // roleLabel
             // 
             this.roleLabel.AutoSize = true;
+            this.roleLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.roleLabel.Location = new System.Drawing.Point(229, 234);
             this.roleLabel.Name = "roleLabel";
             this.roleLabel.Size = new System.Drawing.Size(33, 15);
@@ -218,9 +223,10 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             // dobLabel
             // 
             this.dobLabel.AutoSize = true;
+            this.dobLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.dobLabel.Location = new System.Drawing.Point(229, 167);
             this.dobLabel.Name = "dobLabel";
-            this.dobLabel.Size = new System.Drawing.Size(73, 15);
+            this.dobLabel.Size = new System.Drawing.Size(74, 15);
             this.dobLabel.TabIndex = 1;
             this.dobLabel.Text = "Date of Birth";
             this.dobLabel.Click += new System.EventHandler(this.foundUsernameLabel_Click);
@@ -231,7 +237,6 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             this.phoneTextField.Location = new System.Drawing.Point(20, 324);
             this.phoneTextField.MinimumSize = new System.Drawing.Size(203, 32);
             this.phoneTextField.Name = "phoneTextField";
-            this.phoneTextField.PlaceholderText = "Phone";
             this.phoneTextField.Size = new System.Drawing.Size(203, 32);
             this.phoneTextField.TabIndex = 2;
             this.phoneTextField.TextChanged += new System.EventHandler(this.foundUsernameTextField_TextChanged);
@@ -239,6 +244,7 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             // phoneLabel
             // 
             this.phoneLabel.AutoSize = true;
+            this.phoneLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.phoneLabel.Location = new System.Drawing.Point(20, 305);
             this.phoneLabel.Name = "phoneLabel";
             this.phoneLabel.Size = new System.Drawing.Size(44, 15);
@@ -252,7 +258,6 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             this.foundUsernameTextField.Location = new System.Drawing.Point(20, 186);
             this.foundUsernameTextField.MinimumSize = new System.Drawing.Size(203, 32);
             this.foundUsernameTextField.Name = "foundUsernameTextField";
-            this.foundUsernameTextField.PlaceholderText = "Username";
             this.foundUsernameTextField.Size = new System.Drawing.Size(203, 32);
             this.foundUsernameTextField.TabIndex = 2;
             this.foundUsernameTextField.TextChanged += new System.EventHandler(this.foundUsernameTextField_TextChanged);
@@ -260,6 +265,7 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             // foundUsernameLabel
             // 
             this.foundUsernameLabel.AutoSize = true;
+            this.foundUsernameLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.foundUsernameLabel.Location = new System.Drawing.Point(20, 167);
             this.foundUsernameLabel.Name = "foundUsernameLabel";
             this.foundUsernameLabel.Size = new System.Drawing.Size(63, 15);
@@ -273,7 +279,6 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             this.passwordTextField.Location = new System.Drawing.Point(229, 121);
             this.passwordTextField.MinimumSize = new System.Drawing.Size(203, 32);
             this.passwordTextField.Name = "passwordTextField";
-            this.passwordTextField.PlaceholderText = "Password";
             this.passwordTextField.Size = new System.Drawing.Size(203, 32);
             this.passwordTextField.TabIndex = 2;
             this.passwordTextField.UseSystemPasswordChar = true;
@@ -281,6 +286,7 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             // passwordLabel
             // 
             this.passwordLabel.AutoSize = true;
+            this.passwordLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.passwordLabel.Location = new System.Drawing.Point(229, 102);
             this.passwordLabel.Name = "passwordLabel";
             this.passwordLabel.Size = new System.Drawing.Size(60, 15);
@@ -293,13 +299,13 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             this.emailTextField.Location = new System.Drawing.Point(20, 121);
             this.emailTextField.MinimumSize = new System.Drawing.Size(203, 32);
             this.emailTextField.Name = "emailTextField";
-            this.emailTextField.PlaceholderText = "Email";
             this.emailTextField.Size = new System.Drawing.Size(203, 32);
             this.emailTextField.TabIndex = 2;
             // 
             // emailLable
             // 
             this.emailLable.AutoSize = true;
+            this.emailLable.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.emailLable.Location = new System.Drawing.Point(20, 102);
             this.emailLable.Name = "emailLable";
             this.emailLable.Size = new System.Drawing.Size(39, 15);
@@ -312,13 +318,13 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             this.firstNameTextField.Location = new System.Drawing.Point(229, 51);
             this.firstNameTextField.MinimumSize = new System.Drawing.Size(203, 32);
             this.firstNameTextField.Name = "firstNameTextField";
-            this.firstNameTextField.PlaceholderText = "Username";
             this.firstNameTextField.Size = new System.Drawing.Size(203, 32);
             this.firstNameTextField.TabIndex = 2;
             // 
             // firstNameLabel
             // 
             this.firstNameLabel.AutoSize = true;
+            this.firstNameLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.firstNameLabel.Location = new System.Drawing.Point(229, 32);
             this.firstNameLabel.Name = "firstNameLabel";
             this.firstNameLabel.Size = new System.Drawing.Size(67, 15);
@@ -331,13 +337,13 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             this.lastNameTextField.Location = new System.Drawing.Point(20, 51);
             this.lastNameTextField.MinimumSize = new System.Drawing.Size(203, 32);
             this.lastNameTextField.Name = "lastNameTextField";
-            this.lastNameTextField.PlaceholderText = "Last Name";
             this.lastNameTextField.Size = new System.Drawing.Size(203, 32);
             this.lastNameTextField.TabIndex = 2;
             // 
             // lastNameLabel
             // 
             this.lastNameLabel.AutoSize = true;
+            this.lastNameLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lastNameLabel.Location = new System.Drawing.Point(20, 32);
             this.lastNameLabel.Name = "lastNameLabel";
             this.lastNameLabel.Size = new System.Drawing.Size(66, 15);
@@ -395,7 +401,7 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             {
                 firstNameTextField.Text = targetUser.FirstNames;
                 lastNameTextField.Text = targetUser.LastName;
-                usernameTextField.Text = targetUser.Username;
+                foundUsernameTextField.Text = targetUser.Username;
                 genderComboBox.Text = targetUser.Gender;
                 roleComboBox.Text = targetUser.Role;
                 emailTextField.Text = targetUser.Email;
@@ -423,6 +429,19 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             User newUser = new User(fname, lname, gender, username, role, dob, email, phone, false); ;
             newUser.UpdateUser();
         }
-  
+
+        private void genderComboBox_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            e.DrawBackground();
+            if (e.Index > -1)
+                e.Graphics.DrawString(genderComboBox.Items[e.Index].ToString(), e.Font, new SolidBrush(e.ForeColor), e.Bounds);
+        }
+
+        private void roleComboBox_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            e.DrawBackground();
+            if (e.Index > -1)
+                e.Graphics.DrawString(roleComboBox.Items[e.Index].ToString(), e.Font, new SolidBrush(e.ForeColor), e.Bounds);
+        }
     }
 }

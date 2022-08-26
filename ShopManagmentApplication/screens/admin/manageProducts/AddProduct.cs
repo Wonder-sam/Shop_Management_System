@@ -5,7 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BarcodeLib;
+using MySql.Data.MySqlClient;
 using ShopManagementApplication.classes;
+using ShopManagementApplication.database;
 
 namespace ShopManagementApplication.screens.admin.manageProducts
 {
@@ -35,10 +37,7 @@ namespace ShopManagementApplication.screens.admin.manageProducts
         {
             InitializeComponent();
             this.inStockNumberField.Controls.RemoveAt(0);
-            string enumQuery = $"SELECT COLUMN_TYPE as AllPossibleEnumValues FROM INFORMATION_SCHEMA.COLUMNS " +
-                $"WHERE TABLE_SCHEMA = 'shoprite' AND TABLE_NAME = 'productCategories' AND COLUMN_NAME = 'productCategory'";
-
-
+            GetCategories();
         }
 
         private void InitializeComponent()
@@ -210,15 +209,17 @@ namespace ShopManagementApplication.screens.admin.manageProducts
             // expiryDateLabel
             // 
             this.expiryDateLabel.AutoSize = true;
+            this.expiryDateLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.expiryDateLabel.Location = new System.Drawing.Point(295, 218);
             this.expiryDateLabel.Name = "expiryDateLabel";
-            this.expiryDateLabel.Size = new System.Drawing.Size(69, 15);
+            this.expiryDateLabel.Size = new System.Drawing.Size(70, 15);
             this.expiryDateLabel.TabIndex = 0;
             this.expiryDateLabel.Text = "Expiry Date:";
             // 
             // reorderLevelLabel
             // 
             this.reorderLevelLabel.AutoSize = true;
+            this.reorderLevelLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.reorderLevelLabel.Location = new System.Drawing.Point(24, 218);
             this.reorderLevelLabel.Name = "reorderLevelLabel";
             this.reorderLevelLabel.Size = new System.Drawing.Size(81, 15);
@@ -228,15 +229,17 @@ namespace ShopManagementApplication.screens.admin.manageProducts
             // inStockLabel
             // 
             this.inStockLabel.AutoSize = true;
+            this.inStockLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.inStockLabel.Location = new System.Drawing.Point(295, 132);
             this.inStockLabel.Name = "inStockLabel";
-            this.inStockLabel.Size = new System.Drawing.Size(99, 15);
+            this.inStockLabel.Size = new System.Drawing.Size(101, 15);
             this.inStockLabel.TabIndex = 0;
             this.inStockLabel.Text = "Number In Stock:";
             // 
             // productPriceLabel
             // 
             this.productPriceLabel.AutoSize = true;
+            this.productPriceLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.productPriceLabel.Location = new System.Drawing.Point(24, 132);
             this.productPriceLabel.Name = "productPriceLabel";
             this.productPriceLabel.Size = new System.Drawing.Size(81, 15);
@@ -246,15 +249,17 @@ namespace ShopManagementApplication.screens.admin.manageProducts
             // productCategoryLabel
             // 
             this.productCategoryLabel.AutoSize = true;
+            this.productCategoryLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.productCategoryLabel.Location = new System.Drawing.Point(295, 45);
             this.productCategoryLabel.Name = "productCategoryLabel";
-            this.productCategoryLabel.Size = new System.Drawing.Size(103, 15);
+            this.productCategoryLabel.Size = new System.Drawing.Size(102, 15);
             this.productCategoryLabel.TabIndex = 0;
             this.productCategoryLabel.Text = "Product Category:";
             // 
             // productNameLabel
             // 
             this.productNameLabel.AutoSize = true;
+            this.productNameLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.productNameLabel.Location = new System.Drawing.Point(24, 45);
             this.productNameLabel.Name = "productNameLabel";
             this.productNameLabel.Size = new System.Drawing.Size(87, 15);
@@ -332,6 +337,35 @@ namespace ShopManagementApplication.screens.admin.manageProducts
             e.DrawBackground();
             if (e.Index > -1)
                 e.Graphics.DrawString(productCategoryComboBox.Items[e.Index].ToString(), e.Font, new SolidBrush(e.ForeColor), e.Bounds);
+        }
+
+        private void GetCategories()
+        {
+            DatabaseConnection connection = new();
+            string enumQuery = $"SELECT COLUMN_TYPE as AllPossibleEnumValues FROM INFORMATION_SCHEMA.COLUMNS " +
+                $"WHERE TABLE_SCHEMA = 'shoprite' AND TABLE_NAME = 'productCategories' AND COLUMN_NAME = 'productCategory'";
+
+            try
+            {
+                MySqlCommand cmd = new(enumQuery, connection.conn);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    string enums = reader["AllPossibleEnumValues"].ToString();
+                    enums = enums.Replace("'", "");
+                    enums = enums.Substring(5);
+                    enums = enums.Remove(enums.Length - 1);
+                    String[] enumValues = enums.Split(",");
+                    this.productCategoryComboBox.Items.AddRange(enumValues);
+                    this.productCategoryComboBox.SelectedIndex = 0;
+                }
+                reader.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                Console.ReadKey();
+            }
         }
     }
 }

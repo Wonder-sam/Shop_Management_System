@@ -91,7 +91,6 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             this.lastNameTextField.Location = new System.Drawing.Point(16, 45);
             this.lastNameTextField.MinimumSize = new System.Drawing.Size(175, 32);
             this.lastNameTextField.Name = "lastNameTextField";
-            this.lastNameTextField.PlaceholderText = "Last Name";
             this.lastNameTextField.Size = new System.Drawing.Size(182, 32);
             this.lastNameTextField.TabIndex = 1;
             // 
@@ -135,7 +134,6 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             this.firstNamesTextField.MaximumSize = new System.Drawing.Size(175, 32);
             this.firstNamesTextField.MinimumSize = new System.Drawing.Size(175, 32);
             this.firstNamesTextField.Name = "firstNamesTextField";
-            this.firstNamesTextField.PlaceholderText = "First Names";
             this.firstNamesTextField.Size = new System.Drawing.Size(175, 32);
             this.firstNamesTextField.TabIndex = 1;
             // 
@@ -214,7 +212,6 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             this.phoneTextField.MaximumSize = new System.Drawing.Size(175, 32);
             this.phoneTextField.MinimumSize = new System.Drawing.Size(175, 32);
             this.phoneTextField.Name = "phoneTextField";
-            this.phoneTextField.PlaceholderText = "Phone";
             this.phoneTextField.Size = new System.Drawing.Size(175, 32);
             this.phoneTextField.TabIndex = 1;
             // 
@@ -306,7 +303,6 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             this.passwordTextField.MinimumSize = new System.Drawing.Size(175, 32);
             this.passwordTextField.Name = "passwordTextField";
             this.passwordTextField.PasswordChar = '*';
-            this.passwordTextField.PlaceholderText = "Password";
             this.passwordTextField.Size = new System.Drawing.Size(175, 32);
             this.passwordTextField.TabIndex = 1;
             // 
@@ -318,7 +314,6 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             this.usernameTextField.Location = new System.Drawing.Point(16, 110);
             this.usernameTextField.MinimumSize = new System.Drawing.Size(175, 32);
             this.usernameTextField.Name = "usernameTextField";
-            this.usernameTextField.PlaceholderText = "Username";
             this.usernameTextField.Size = new System.Drawing.Size(182, 32);
             this.usernameTextField.TabIndex = 1;
             // 
@@ -330,7 +325,6 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             this.emailTextField.Location = new System.Drawing.Point(16, 45);
             this.emailTextField.MinimumSize = new System.Drawing.Size(175, 32);
             this.emailTextField.Name = "emailTextField";
-            this.emailTextField.PlaceholderText = "Email";
             this.emailTextField.Size = new System.Drawing.Size(182, 32);
             this.emailTextField.TabIndex = 1;
             // 

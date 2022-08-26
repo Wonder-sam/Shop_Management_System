@@ -74,7 +74,6 @@ namespace ShopManagementApplication.screens.admin.manageProducts
             this.barcodeTextField.Location = new System.Drawing.Point(20, 49);
             this.barcodeTextField.MinimumSize = new System.Drawing.Size(203, 32);
             this.barcodeTextField.Name = "barcodeTextField";
-            this.barcodeTextField.PlaceholderText = "Barcode";
             this.barcodeTextField.Size = new System.Drawing.Size(203, 32);
             this.barcodeTextField.TabIndex = 2;
             this.barcodeTextField.TextChanged += new System.EventHandler(this.barcodeTextField_TextChanged);
@@ -82,6 +81,7 @@ namespace ShopManagementApplication.screens.admin.manageProducts
             // usernameLabel
             // 
             this.usernameLabel.AutoSize = true;
+            this.usernameLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.usernameLabel.Location = new System.Drawing.Point(20, 30);
             this.usernameLabel.Name = "usernameLabel";
             this.usernameLabel.Size = new System.Drawing.Size(53, 15);
@@ -92,7 +92,7 @@ namespace ShopManagementApplication.screens.admin.manageProducts
             // 
             this.deleteBtn.BackColor = System.Drawing.Color.SteelBlue;
             this.deleteBtn.ForeColor = System.Drawing.Color.White;
-            this.deleteBtn.Location = new System.Drawing.Point(278, 559);
+            this.deleteBtn.Location = new System.Drawing.Point(278, 498);
             this.deleteBtn.Name = "deleteBtn";
             this.deleteBtn.Size = new System.Drawing.Size(170, 45);
             this.deleteBtn.TabIndex = 9;
@@ -116,7 +116,7 @@ namespace ShopManagementApplication.screens.admin.manageProducts
             this.productDetailsGroup.Controls.Add(this.productNameLabel);
             this.productDetailsGroup.Location = new System.Drawing.Point(81, 203);
             this.productDetailsGroup.Name = "productDetailsGroup";
-            this.productDetailsGroup.Size = new System.Drawing.Size(574, 329);
+            this.productDetailsGroup.Size = new System.Drawing.Size(574, 258);
             this.productDetailsGroup.TabIndex = 8;
             this.productDetailsGroup.TabStop = false;
             this.productDetailsGroup.Text = "Product Details";
@@ -124,43 +124,45 @@ namespace ShopManagementApplication.screens.admin.manageProducts
             // expiryDateText
             // 
             this.expiryDateText.AutoSize = true;
-            this.expiryDateText.Location = new System.Drawing.Point(197, 251);
+            this.expiryDateText.Location = new System.Drawing.Point(197, 210);
             this.expiryDateText.Name = "expiryDateText";
-            this.expiryDateText.Size = new System.Drawing.Size(69, 15);
+            this.expiryDateText.Size = new System.Drawing.Size(25, 15);
             this.expiryDateText.TabIndex = 0;
-            this.expiryDateText.Text = "Expiry Date:";
+            this.expiryDateText.Text = "......";
             // 
             // reorderLevelText
             // 
             this.reorderLevelText.AutoSize = true;
-            this.reorderLevelText.Location = new System.Drawing.Point(197, 212);
+            this.reorderLevelText.Location = new System.Drawing.Point(197, 176);
             this.reorderLevelText.Name = "reorderLevelText";
-            this.reorderLevelText.Size = new System.Drawing.Size(81, 15);
+            this.reorderLevelText.Size = new System.Drawing.Size(25, 15);
             this.reorderLevelText.TabIndex = 0;
-            this.reorderLevelText.Text = "Reorder Level:";
+            this.reorderLevelText.Text = "......";
             // 
             // expiryDateLabel
             // 
             this.expiryDateLabel.AutoSize = true;
-            this.expiryDateLabel.Location = new System.Drawing.Point(24, 251);
+            this.expiryDateLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.expiryDateLabel.Location = new System.Drawing.Point(24, 210);
             this.expiryDateLabel.Name = "expiryDateLabel";
-            this.expiryDateLabel.Size = new System.Drawing.Size(69, 15);
+            this.expiryDateLabel.Size = new System.Drawing.Size(70, 15);
             this.expiryDateLabel.TabIndex = 0;
             this.expiryDateLabel.Text = "Expiry Date:";
             // 
             // inStockText
             // 
             this.inStockText.AutoSize = true;
-            this.inStockText.Location = new System.Drawing.Point(197, 170);
+            this.inStockText.Location = new System.Drawing.Point(197, 141);
             this.inStockText.Name = "inStockText";
-            this.inStockText.Size = new System.Drawing.Size(99, 15);
+            this.inStockText.Size = new System.Drawing.Size(25, 15);
             this.inStockText.TabIndex = 0;
-            this.inStockText.Text = "Number In Stock:";
+            this.inStockText.Text = "......";
             // 
             // reorderLevelLabel
             // 
             this.reorderLevelLabel.AutoSize = true;
-            this.reorderLevelLabel.Location = new System.Drawing.Point(24, 212);
+            this.reorderLevelLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.reorderLevelLabel.Location = new System.Drawing.Point(24, 176);
             this.reorderLevelLabel.Name = "reorderLevelLabel";
             this.reorderLevelLabel.Size = new System.Drawing.Size(81, 15);
             this.reorderLevelLabel.TabIndex = 0;
@@ -169,34 +171,36 @@ namespace ShopManagementApplication.screens.admin.manageProducts
             // productPriceText
             // 
             this.productPriceText.AutoSize = true;
-            this.productPriceText.Location = new System.Drawing.Point(197, 132);
+            this.productPriceText.Location = new System.Drawing.Point(197, 106);
             this.productPriceText.Name = "productPriceText";
-            this.productPriceText.Size = new System.Drawing.Size(81, 15);
+            this.productPriceText.Size = new System.Drawing.Size(25, 15);
             this.productPriceText.TabIndex = 0;
-            this.productPriceText.Text = "Product Price:";
+            this.productPriceText.Text = "......";
             // 
             // inStockLabel
             // 
             this.inStockLabel.AutoSize = true;
-            this.inStockLabel.Location = new System.Drawing.Point(24, 170);
+            this.inStockLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.inStockLabel.Location = new System.Drawing.Point(24, 141);
             this.inStockLabel.Name = "inStockLabel";
-            this.inStockLabel.Size = new System.Drawing.Size(99, 15);
+            this.inStockLabel.Size = new System.Drawing.Size(101, 15);
             this.inStockLabel.TabIndex = 0;
             this.inStockLabel.Text = "Number In Stock:";
             // 
             // productCategoryText
             // 
             this.productCategoryText.AutoSize = true;
-            this.productCategoryText.Location = new System.Drawing.Point(197, 88);
+            this.productCategoryText.Location = new System.Drawing.Point(197, 71);
             this.productCategoryText.Name = "productCategoryText";
-            this.productCategoryText.Size = new System.Drawing.Size(103, 15);
+            this.productCategoryText.Size = new System.Drawing.Size(25, 15);
             this.productCategoryText.TabIndex = 0;
-            this.productCategoryText.Text = "Product Category:";
+            this.productCategoryText.Text = "......";
             // 
             // productPriceLabel
             // 
             this.productPriceLabel.AutoSize = true;
-            this.productPriceLabel.Location = new System.Drawing.Point(24, 132);
+            this.productPriceLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.productPriceLabel.Location = new System.Drawing.Point(24, 106);
             this.productPriceLabel.Name = "productPriceLabel";
             this.productPriceLabel.Size = new System.Drawing.Size(81, 15);
             this.productPriceLabel.TabIndex = 0;
@@ -205,25 +209,27 @@ namespace ShopManagementApplication.screens.admin.manageProducts
             // productNameText
             // 
             this.productNameText.AutoSize = true;
-            this.productNameText.Location = new System.Drawing.Point(197, 45);
+            this.productNameText.Location = new System.Drawing.Point(197, 38);
             this.productNameText.Name = "productNameText";
-            this.productNameText.Size = new System.Drawing.Size(87, 15);
+            this.productNameText.Size = new System.Drawing.Size(25, 15);
             this.productNameText.TabIndex = 0;
-            this.productNameText.Text = "Product Name:";
+            this.productNameText.Text = "......";
             // 
             // productCategoryLabel
             // 
             this.productCategoryLabel.AutoSize = true;
-            this.productCategoryLabel.Location = new System.Drawing.Point(24, 88);
+            this.productCategoryLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.productCategoryLabel.Location = new System.Drawing.Point(24, 71);
             this.productCategoryLabel.Name = "productCategoryLabel";
-            this.productCategoryLabel.Size = new System.Drawing.Size(103, 15);
+            this.productCategoryLabel.Size = new System.Drawing.Size(102, 15);
             this.productCategoryLabel.TabIndex = 0;
             this.productCategoryLabel.Text = "Product Category:";
             // 
             // productNameLabel
             // 
             this.productNameLabel.AutoSize = true;
-            this.productNameLabel.Location = new System.Drawing.Point(24, 45);
+            this.productNameLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.productNameLabel.Location = new System.Drawing.Point(24, 38);
             this.productNameLabel.Name = "productNameLabel";
             this.productNameLabel.Size = new System.Drawing.Size(87, 15);
             this.productNameLabel.TabIndex = 0;
@@ -286,5 +292,6 @@ namespace ShopManagementApplication.screens.admin.manageProducts
             }
             
         }
+
     }
 }
