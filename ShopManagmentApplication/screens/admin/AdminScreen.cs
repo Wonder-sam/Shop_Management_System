@@ -21,10 +21,11 @@ namespace ShopManagementApplication.screens.admin
         private AddUser addUserSubTab;
         private UpdateUser updateUserSubTab;
         private DeleteUser deleteUserSubTab;
-        private ViewUsers viewUsersSubTab;
+        private readonly ViewUsers viewUsersSubTab;
         private AddProduct addProductSubTab;
         private UpdateProduct updateProductSubTab;
         private DeleteProduct removeProductSubTab;
+        private ManageCategory manageCategorySubTab;
         private Label removeProduct;
         private Label updateProduct;
         private Label addProduct;
@@ -37,15 +38,12 @@ namespace ShopManagementApplication.screens.admin
         public AdminScreen()
         {
             InitializeComponent();
-            sideTabs.ExpandAll();
-            this.viewUsersSubTab = new ShopManagementApplication.screens.admin.manageUsers.ViewUsers();
-            this.viewUsersSubTab.Location = new System.Drawing.Point(0, 51);
-            this.manageUsersTab.Controls.Add(viewUsersSubTab);
-
-            
-
-            tabs = new UserControl[] {addUserSubTab, updateUserSubTab, deleteUserSubTab, viewUsersSubTab, 
-                addProductSubTab, removeProductSubTab};
+            sideTabs!.ExpandAll();
+            this.viewUsersSubTab = new()
+            {
+                Location = new System.Drawing.Point(0, 51)
+            };
+            this.manageUsersTab!.Controls.Add(viewUsersSubTab);
         }
         private void InitializeComponent()
         {
@@ -70,9 +68,10 @@ namespace ShopManagementApplication.screens.admin
             this.addUserSubTab = new ShopManagementApplication.screens.admin.manageUsers.AddUser();
             this.updateUserSubTab = new ShopManagementApplication.screens.admin.manageUsers.UpdateUser();
             this.deleteUserSubTab = new ShopManagementApplication.screens.admin.manageUsers.DeleteUser();
-            this.addProductSubTab = new ShopManagementApplication.screens.admin.manageProducts.AddProduct();
+            this.addProductSubTab = new AddProduct();
             this.updateProductSubTab = new ShopManagementApplication.screens.admin.manageProducts.UpdateProduct();
             this.removeProductSubTab = new ShopManagementApplication.screens.admin.manageProducts.DeleteProduct();
+            this.manageCategorySubTab = new ShopManagementApplication.screens.admin.manageProducts.ManageCategory();
             this.panel1 = new System.Windows.Forms.Panel();
             this.shopName = new System.Windows.Forms.Label();
             this.usersTabs = new System.Windows.Forms.Label();
@@ -124,22 +123,13 @@ namespace ShopManagementApplication.screens.admin
             this.deleteUserSubTab.Size = new System.Drawing.Size(951, 588);
             this.deleteUserSubTab.TabIndex = 0;
             // 
-            // addProductSubTab
-            // 
-            this.addProductSubTab.BackColor = System.Drawing.Color.White;
-            this.addProductSubTab.Location = new System.Drawing.Point(0, 51);
-            this.addProductSubTab.Margin = new System.Windows.Forms.Padding(0);
-            this.addProductSubTab.Name = "addProductSubTab";
-            this.addProductSubTab.Size = new System.Drawing.Size(957, 668);
-            this.addProductSubTab.TabIndex = 0;
-            // 
             // updateProductSubTab
             // 
             this.updateProductSubTab.BackColor = System.Drawing.Color.White;
             this.updateProductSubTab.Location = new System.Drawing.Point(0, 51);
             this.updateProductSubTab.Name = "updateProductSubTab";
             this.updateProductSubTab.Size = new System.Drawing.Size(957, 668);
-            this.updateProductSubTab.TabIndex = 0;
+            this.updateProductSubTab.TabIndex = 1;
             // 
             // removeProductSubTab
             // 
@@ -147,7 +137,15 @@ namespace ShopManagementApplication.screens.admin
             this.removeProductSubTab.Location = new System.Drawing.Point(0, 51);
             this.removeProductSubTab.Name = "removeProductSubTab";
             this.removeProductSubTab.Size = new System.Drawing.Size(957, 668);
-            this.removeProductSubTab.TabIndex = 0;
+            this.removeProductSubTab.TabIndex = 2;
+            // 
+            // manageCategorySubTab
+            // 
+            this.manageCategorySubTab.BackColor = System.Drawing.Color.White;
+            this.manageCategorySubTab.Location = new System.Drawing.Point(0, 51);
+            this.manageCategorySubTab.Name = "manageCategorySubTab";
+            this.manageCategorySubTab.Size = new System.Drawing.Size(957, 668);
+            this.manageCategorySubTab.TabIndex = 3;
             // 
             // panel1
             // 
@@ -236,6 +234,7 @@ namespace ShopManagementApplication.screens.admin
             treeNode10});
             this.sideTabs.Scrollable = false;
             this.sideTabs.ShowLines = false;
+            this.sideTabs.ShowPlusMinus = false;
             this.sideTabs.Size = new System.Drawing.Size(201, 528);
             this.sideTabs.TabIndex = 1;
             this.sideTabs.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.SideTabs_AfterSelect);
@@ -258,7 +257,6 @@ namespace ShopManagementApplication.screens.admin
             this.username.Size = new System.Drawing.Size(49, 15);
             this.username.TabIndex = 2;
             this.username.Text = "Wonder";
-            this.username.Click += new System.EventHandler(this.username_Click);
             // 
             // manageUsersTab
             // 
@@ -310,7 +308,6 @@ namespace ShopManagementApplication.screens.admin
             this.removeUser.Size = new System.Drawing.Size(76, 15);
             this.removeUser.TabIndex = 0;
             this.removeUser.Text = "Remove User";
-            this.removeUser.Click += new System.EventHandler(this.label3_Click);
             // 
             // addUser
             // 
@@ -349,7 +346,6 @@ namespace ShopManagementApplication.screens.admin
             this.updateProduct.Size = new System.Drawing.Size(90, 15);
             this.updateProduct.TabIndex = 0;
             this.updateProduct.Text = "Update Product";
-            this.updateProduct.Click += new System.EventHandler(this.label4_Click);
             // 
             // removeProduct
             // 
@@ -365,6 +361,7 @@ namespace ShopManagementApplication.screens.admin
             this.manageProductsPage.AutoScroll = true;
             this.manageProductsPage.BackColor = System.Drawing.Color.IndianRed;
             this.manageProductsPage.Controls.Add(this.productTopSubTabs);
+            this.manageProductsPage.Controls.Add(this.manageCategorySubTab);
             this.manageProductsPage.Controls.Add(this.addProductSubTab);
             this.manageProductsPage.Controls.Add(this.updateProductSubTab);
             this.manageProductsPage.Controls.Add(this.removeProductSubTab);
@@ -399,7 +396,8 @@ namespace ShopManagementApplication.screens.admin
             this.Controls.Add(this.manageUsersTab);
             this.Controls.Add(this.manageProductsPage);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "AdminScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.panel1.ResumeLayout(false);
@@ -460,31 +458,12 @@ namespace ShopManagementApplication.screens.admin
                 manageProductsPage.BringToFront();
                 removeProductSubTab.BringToFront();
             }
+            else if (e.Node.Name == "manageCategories")
+            {
+                manageProductsPage.BringToFront();
+                manageCategorySubTab.BringToFront();
+            }
         }
 
-        private void AdminScreen_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void username_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void addUserSubTab_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
