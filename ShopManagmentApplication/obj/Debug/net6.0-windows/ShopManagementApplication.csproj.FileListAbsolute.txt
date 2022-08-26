@@ -30,10 +30,10 @@ C:\Users\HP\Documents\C# Programs\ShopManagmentApplication\ShopManagmentApplicat
 C:\Users\HP\Documents\C# Programs\ShopManagmentApplication\ShopManagmentApplication\obj\Debug\net6.0-windows\ShopManagementApplication.screens.admin.manageUsers.DeleteUser.resources
 C:\Users\HP\Documents\C# Programs\ShopManagmentApplication\ShopManagmentApplication\obj\Debug\net6.0-windows\ShopManagementApplication.screens.admin.manageUsers.UpdateUser.resources
 C:\Users\HP\Documents\C# Programs\ShopManagmentApplication\ShopManagmentApplication\obj\Debug\net6.0-windows\ShopManagementApplication.screens.admin.AdminScreen.resources
-C:\Users\HP\Documents\C# Programs\ShopManagmentApplication\ShopManagmentApplication\obj\Debug\net6.0-windows\ShopManagementApplication.screens.Login.resources
-C:\Users\HP\Documents\C# Programs\ShopManagmentApplication\ShopManagmentApplication\bin\Debug\net6.0-windows\Gma.QrCodeNet.Encoding.dll
 C:\Users\HP\Documents\C# Programs\ShopManagmentApplication\ShopManagmentApplication\obj\Debug\net6.0-windows\ShopManagementApplication.screens.admin.manageProducts.AddProduct.resources
 C:\Users\HP\Documents\C# Programs\ShopManagmentApplication\ShopManagmentApplication\obj\Debug\net6.0-windows\ShopManagementApplication.Properties.Resources.resources
 C:\Users\HP\Documents\C# Programs\ShopManagmentApplication\ShopManagmentApplication\bin\Debug\net6.0-windows\BarcodeStandard.dll
 C:\Users\HP\Documents\C# Programs\ShopManagmentApplication\ShopManagmentApplication\obj\Debug\net6.0-windows\ShopManagementApplication.screens.admin.manageProducts.UpdateProduct.resources
 C:\Users\HP\Documents\C# Programs\ShopManagmentApplication\ShopManagmentApplication\obj\Debug\net6.0-windows\ShopManagementApplication.screens.admin.manageProducts.DeleteProduct.resources
+C:\Users\HP\Documents\C# Programs\ShopManagmentApplication\ShopManagmentApplication\obj\Debug\net6.0-windows\ShopManagementApplication.screens.admin.manageProducts.ManageCategory.resources
+C:\Users\HP\Documents\C# Programs\ShopManagmentApplication\ShopManagmentApplication\obj\Debug\net6.0-windows\ShopManagementApplication.screens.LoginScreen.resources

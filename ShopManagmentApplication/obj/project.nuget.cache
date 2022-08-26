@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "RbJXHSXRduUqbNJ0rdRSG5uOcZbUgM+Mk959cW9sAkYXjDBgW+7vF/aatvIqtXBcP93pG/YnUwNpo1EBLnXvuw==",
+  "dgSpecHash": "hztZaB7eVNmBB4m4zaOudlJEPcQ2avQ0XXc4Zy1BWN+53we2CjTrkLdXtYPuOV08+0OvycIZTTl1PgowaEW4hw==",
   "success": true,
   "projectFilePath": "C:\\Users\\HP\\Documents\\C# Programs\\ShopManagmentApplication\\ShopManagmentApplication\\ShopManagementApplication.csproj",
   "expectedPackageFiles": [
@@ -14,7 +14,6 @@
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\mysql.data\\8.0.30\\mysql.data.8.0.30.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\portable.bouncycastle\\1.9.0\\portable.bouncycastle.1.9.0.nupkg.sha512",
-    "C:\\Users\\HP\\.nuget\\packages\\qrcode.net\\0.4.0\\qrcode.net.0.4.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\system.configuration.configurationmanager\\4.4.1\\system.configuration.configurationmanager.4.4.1.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\system.drawing.common\\5.0.2\\system.drawing.common.5.0.2.nupkg.sha512",
@@ -28,16 +27,5 @@
     "C:\\Users\\HP\\.nuget\\packages\\system.text.json\\5.0.2\\system.text.json.5.0.2.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'QrCode.Net 0.4.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0-windows7.0'. This package may not be fully compatible with your project.",
-      "libraryId": "QrCode.Net",
-      "targetGraphs": [
-        "net6.0-windows7.0"
-      ]
-    }
-  ]
+  "logs": []
 }

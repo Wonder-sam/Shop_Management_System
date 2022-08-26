@@ -11,6 +11,9 @@
     <Compile Update="screens\admin\manageProducts\DeleteProduct.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="screens\admin\manageProducts\ManageCategory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="screens\admin\manageProducts\UpdateProduct.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -29,7 +32,7 @@
     <Compile Update="screens\attendant\AttendantScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="screens\Login.cs">
+    <Compile Update="screens\LoginScreen.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

@@ -10,8 +10,7 @@
         "dependencies": {
           "BCrypt.Net-Next": "4.0.3",
           "BarcodeLib": "2.4.0",
-          "MySql.Data": "8.0.30",
-          "QrCode.Net": "0.4.0"
+          "MySql.Data": "8.0.30"
         },
         "runtime": {
           "ShopManagementApplication.dll": {}
@@ -116,14 +115,6 @@
           "lib/netstandard2.0/BouncyCastle.Crypto.dll": {
             "assemblyVersion": "1.9.0.0",
             "fileVersion": "1.9.0.1"
-          }
-        }
-      },
-      "QrCode.Net/0.4.0": {
-        "runtime": {
-          "lib/net45/Gma.QrCodeNet.Encoding.dll": {
-            "assemblyVersion": "0.4.0.0",
-            "fileVersion": "0.4.1.2"
           }
         }
       },
@@ -242,13 +233,6 @@
       "sha512": "sha512-eZZBCABzVOek+id9Xy04HhmgykF0wZg9wpByzrWN7q8qEI0Qen9b7tfd7w8VA3dOeesumMG7C5ZPy0jk7PSRHw==",
       "path": "portable.bouncycastle/1.9.0",
       "hashPath": "portable.bouncycastle.1.9.0.nupkg.sha512"
-    },
-    "QrCode.Net/0.4.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-/IGAS08L3o0GYsVU1VQnE23w00EVaQ1GP5cS2uEfGsiszZ2X6AnbHImwXL1XPM0opT0GOVgbX4Bhp/7eB22Ugg==",
-      "path": "qrcode.net/0.4.0",
-      "hashPath": "qrcode.net.0.4.0.nupkg.sha512"
     },
     "System.Buffers/4.5.1": {
       "type": "package",

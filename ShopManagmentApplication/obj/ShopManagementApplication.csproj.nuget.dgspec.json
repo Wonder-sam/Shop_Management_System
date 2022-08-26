@@ -51,10 +51,6 @@
             "MySql.Data": {
               "target": "Package",
               "version": "[8.0.30, )"
-            },
-            "QrCode.Net": {
-              "target": "Package",
-              "version": "[0.4.0, )"
             }
           },
           "imports": [

@@ -129,15 +129,6 @@
           "lib/netstandard2.0/BouncyCastle.Crypto.dll": {}
         }
       },
-      "QrCode.Net/0.4.0": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Gma.QrCodeNet.Encoding.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Gma.QrCodeNet.Encoding.dll": {}
-        }
-      },
       "System.Buffers/4.5.1": {
         "type": "package",
         "compile": {
@@ -534,35 +525,6 @@
         "lib/netstandard2.0/BouncyCastle.Crypto.xml",
         "portable.bouncycastle.1.9.0.nupkg.sha512",
         "portable.bouncycastle.nuspec"
-      ]
-    },
-    "QrCode.Net/0.4.0": {
-      "sha512": "/IGAS08L3o0GYsVU1VQnE23w00EVaQ1GP5cS2uEfGsiszZ2X6AnbHImwXL1XPM0opT0GOVgbX4Bhp/7eB22Ugg==",
-      "type": "package",
-      "path": "qrcode.net/0.4.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "NuGet.exe",
-        "lib/net35/Gma.QrCodeNet.Encoding.dll",
-        "lib/net35/Gma.QrCodeNet.Encoding.pdb",
-        "lib/net35/Gma.QrCodeNet.Encoding.xml",
-        "lib/net40/Gma.QrCodeNet.Encoding.XML",
-        "lib/net40/Gma.QrCodeNet.Encoding.dll",
-        "lib/net40/Gma.QrCodeNet.Encoding.pdb",
-        "lib/net45/Gma.QrCodeNet.Encoding.dll",
-        "lib/net45/Gma.QrCodeNet.Encoding.pdb",
-        "lib/net45/Gma.QrCodeNet.Encoding.xml",
-        "lib/netcore45/Gma.QrCodeNet.Encoding.dll",
-        "lib/netcore45/Gma.QrCodeNet.Encoding.pdb",
-        "lib/netcore45/Gma.QrCodeNet.Encoding.pri",
-        "lib/netcore45/Gma.QrCodeNet.Encoding.xml",
-        "lib/netcore45/Themes/Generic.xaml",
-        "lib/sl5/Gma.QrCodeNet.Encoding.dll",
-        "lib/sl5/Gma.QrCodeNet.Encoding.pdb",
-        "lib/sl5/Gma.QrCodeNet.Encoding.xml",
-        "qrcode.net.0.4.0.nupkg.sha512",
-        "qrcode.net.nuspec"
       ]
     },
     "System.Buffers/4.5.1": {
@@ -978,8 +940,7 @@
     "net6.0-windows7.0": [
       "BCrypt.Net-Next >= 4.0.3",
       "BarcodeLib >= 2.4.0",
-      "MySql.Data >= 8.0.30",
-      "QrCode.Net >= 0.4.0"
+      "MySql.Data >= 8.0.30"
     ]
   },
   "packageFolders": {
@@ -1032,10 +993,6 @@
           "MySql.Data": {
             "target": "Package",
             "version": "[8.0.30, )"
-          },
-          "QrCode.Net": {
-            "target": "Package",
-            "version": "[0.4.0, )"
           }
         },
         "imports": [
@@ -1059,17 +1016,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'QrCode.Net 0.4.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0-windows7.0'. This package may not be fully compatible with your project.",
-      "libraryId": "QrCode.Net",
-      "targetGraphs": [
-        "net6.0-windows7.0"
-      ]
-    }
-  ]
+  }
 }
