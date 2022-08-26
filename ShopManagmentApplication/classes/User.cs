@@ -156,11 +156,13 @@ namespace ShopManagementApplication.classes
                 MySqlCommand cmd = new(insertQuery, connection.conn);
 
                 cmd.ExecuteNonQuery();
+                MessageBox.Show("User added successfully!");
             }
             catch (Exception e)
             {
-                WriteLine(e.Message);
+                MessageBox.Show(e.Message);
             }
+            connection.conn.Close();
         }
 
         public void UpdateUser()
@@ -175,13 +177,13 @@ namespace ShopManagementApplication.classes
                 MySqlCommand cmd = new(updateQuery, connection.conn);
 
                 cmd.ExecuteNonQuery();
-                ReadKey();
+                MessageBox.Show("User updated successfully!");
             }
             catch (Exception e)
             {
-                WriteLine(e.Message);
-                ReadKey();
+                MessageBox.Show(e.Message);
             }
+            connection.conn.Close();
         }
 
         public static void RemoveUser(string username)
@@ -193,14 +195,13 @@ namespace ShopManagementApplication.classes
                 MySqlCommand cmd = new(removeQuery, connection.conn);
 
                 cmd.ExecuteNonQuery();
-                ReadKey();
+                MessageBox.Show("User removed successfully!");
             }
             catch (Exception e)
             {
-                WriteLine(e.Message);
-                ReadKey();
+                MessageBox.Show(e.Message);
             }
-
+            connection.conn.Close();
         }
 
         public static void ViewUsers(TableLayoutPanel usersTable)
@@ -274,9 +275,9 @@ namespace ShopManagementApplication.classes
             }
             catch (Exception e)
             {
-                WriteLine(e.Message);
-                ReadKey();
+                MessageBox.Show(e.Message);
             }
+            connection.conn.Close();
         }
 
         public static User? GetUser(string username)
@@ -293,16 +294,16 @@ namespace ShopManagementApplication.classes
                     string dateString = date.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
 
                     return new User(reader["firstNames"].ToString()!, reader["lastName"].ToString()!, reader["gender"].ToString()!,
-                        "wonder", reader["role"].ToString()!, dateString, reader["email"].ToString()!,
+                        reader["username"].ToString()!, reader["role"].ToString()!, dateString, reader["email"].ToString()!,
                         reader["password"].ToString()!, reader["phone"].ToString()!, bool.Parse(reader["privileged"].ToString()!));
                 }
                 reader.Close();
             }
             catch (Exception e)
             {   
-                Console.WriteLine(e.Message);
-                Console.ReadKey();
+                MessageBox.Show(e.Message);
             }
+            connection.conn.Close();
             return null;
         }
     }

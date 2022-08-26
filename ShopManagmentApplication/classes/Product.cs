@@ -120,11 +120,13 @@ namespace ShopManagementApplication.classes
                 MySqlCommand cmd = new(insertQuery, connection.conn);
 
                 cmd.ExecuteNonQuery();
+                MessageBox.Show("Product added successfully!");
             }
             catch (Exception e)
             {
-                WriteLine(e.Message);
+                MessageBox.Show(e.Message);
             }
+            connection.conn.Close();
         }
 
         public void UpdateProduct()
@@ -138,13 +140,13 @@ namespace ShopManagementApplication.classes
                 MySqlCommand cmd = new(updateQuery, connection.conn);
 
                 cmd.ExecuteNonQuery();
-                ReadKey();
+                MessageBox.Show("Product updated successfully!");
             }
             catch (Exception e)
             {
-                WriteLine(e.Message);
-                ReadKey();
+                MessageBox.Show(e.Message);
             }
+            connection.conn.Close();
         }
 
         public static void RemoveProduct(string barcode)
@@ -156,14 +158,13 @@ namespace ShopManagementApplication.classes
                 MySqlCommand cmd = new(removeQuery, connection.conn);
 
                 cmd.ExecuteNonQuery();
-                ReadKey();
+                MessageBox.Show("Product removed successfully!");
             }
             catch (Exception e)
             {
-                WriteLine(e.Message);
-                ReadKey();
+                MessageBox.Show(e.Message);
             }
-
+            connection.conn.Close();
         }
 
         public static void ViewProducts(TableLayoutPanel productsTable)
@@ -232,9 +233,9 @@ namespace ShopManagementApplication.classes
             }
             catch (Exception e)
             {
-                WriteLine(e.Message);
-                ReadKey();
+                MessageBox.Show(e.Message);
             }
+            connection.conn.Close();
         }
 
         public static Product? GetProduct(string barcode)
@@ -258,9 +259,9 @@ namespace ShopManagementApplication.classes
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
-                Console.ReadKey();
+                MessageBox.Show(e.Message);
             }
+            connection.conn.Close();
             return null;
         }
 
