@@ -9,20 +9,25 @@ namespace ShopManagementApplication.screens.admin.manageUsers
 {
     internal class ViewUsers : UserControl
     {
-        private Label lastnameHeader;
-        private Label firstnameHeader;
-        private Label usernameHead;
-        private Label gender;
-        private Label emailHeader;
-        private Label label5;
-        private Label roleHeader;
-        private Label phoneHeader;
+        public Label lastnameHeader;
+        public Label firstnameHeader;
+        public Label usernameHead;
+        public Label gender;
+        public Label emailHeader;
+        public Label label5;
+        public Label roleHeader;
+        public Label phoneHeader;
         private TableLayoutPanel usersTable;
 
         public ViewUsers()
         {
             InitializeComponent();
-            User.ViewUsers(usersTable);
+            //User.ViewUsers(usersTable);
+        }
+
+        public TableLayoutPanel GetTable()
+        {
+            return usersTable;
         }
 
         private void InitializeComponent()
