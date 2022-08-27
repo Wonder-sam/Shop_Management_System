@@ -43,8 +43,10 @@ namespace ShopManagementApplication.screens.attendant
         private PrintPreviewDialog printPreviewDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private List<int> pid = new List<int> ();
+        private List<string> barcodes = new List<string>();
         private string stringToPrint = "";
         private string documentContents;
+        private List<int> prices = new List<int>();
         StreamWriter writer;
 
         public AttendantScreen()
@@ -419,7 +421,8 @@ namespace ShopManagementApplication.screens.attendant
             this.Controls.Add(this.tillPanel);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "AttendantScreen";
             this.panel2.ResumeLayout(false);
             this.receiptPanel.ResumeLayout(false);
@@ -444,6 +447,8 @@ namespace ShopManagementApplication.screens.attendant
             int subAmount = (int)quantityField.Value * int.Parse(productPriceText.Text);
             salesTable.Controls.RemoveByKey("sub"+(numRows-1));
             salesTable.Controls.RemoveByKey("quant"+(numRows-1));
+            prices.RemoveAt(prices.Count-1);
+            prices.Add(subAmount);
             salesTable.Controls.Add(new Label() { Text = quantityField.Value.ToString(), Name = "quant" + (numRows - 1) }, 1, numRows - 1);
             salesTable.Controls.Add(new Label() { Text = subAmount.ToString(), Name = "sub" + (numRows - 1) }, 2, numRows - 1);
             textBox1.Focus();
@@ -467,8 +472,10 @@ namespace ShopManagementApplication.screens.attendant
                     productPriceText.Text = targetProduct.ProductPrice.ToString();
                     barcodeImage.Image = Image.FromFile("barcode.png");
                     pid.Add(targetProduct.Pid);
+                    barcodes.Add(targetProduct.Barcode);
 
                     int subAmount = (int)quantityField.Value * int.Parse(productPriceText.Text);
+                    prices.Add(subAmount);
                     salesTable.Controls.Add(new Label() { Text = productNameText.Text }, 0, numRows);
                     salesTable.Controls.Add(new Label() { Text = quantityField.Text, Name = "quant"+numRows }, 1, numRows);
                     salesTable.Controls.Add(new Label() { Text = subAmount.ToString(), Name = "sub"+numRows }, 2, numRows);
@@ -483,13 +490,18 @@ namespace ShopManagementApplication.screens.attendant
         {
             salesTable.Controls.Clear();
             numRows = 0;
+            pid.Clear();
+            barcodes.Clear();
+            prices.Clear();
         }
 
         private void confirmBtn_Click(object sender, EventArgs e)
         {
             connection = new();
             int i = 1;
+            int j = 0;
             String insertQuery = "";
+            string updateQuery = "";
             using (StreamWriter writer = new StreamWriter("texxt.txt"))
             {
                 writer.WriteLine("-------------------SHOPRITE------------------");
@@ -501,8 +513,10 @@ namespace ShopManagementApplication.screens.attendant
                         writer.WriteLine("\n---------------------------------------------");
                     if (i % 3 == 2)
                     {
-                        insertQuery += "INSERT INTO sales(pid, quantity) VALUES(" + pid.ElementAt((i / 2) - 1) + ", ";
+                        insertQuery += "INSERT INTO sales(pid, quantity) VALUES(" + pid.ElementAt(j) + ", ";
                         insertQuery += item.Text.ToString() + ");";
+                        updateQuery += $"UPDATE products SET available ={0} WHERE barcode ='{barcodes.ElementAt(j)}';";
+                        j++;
                         i++;
                         continue;
                     }
@@ -510,19 +524,22 @@ namespace ShopManagementApplication.screens.attendant
                 }
             }
            
-            Console.WriteLine(insertQuery);
+            MessageBox.Show(prices.Sum()+"");
             try
             {
-                //    MySqlCommand cmd = new(insertQuery, connection.conn);
+                //MySqlCommand cmd = new(insertQuery, connection.conn);
+                //MySqlCommand cmd2 = new(updateQuery, connection.conn);
 
-                //    cmd.ExecuteNonQuery();
+                //cmd.ExecuteNonQuery();
+                //cmd2.ExecuteNonQuery();
+                MessageBox.Show("Succesful transaction");
                 ReadDocument();
                 printPreviewDialog1.Document = printDocument1;
                 printPreviewDialog1.ShowDialog();
             }
             catch (Exception err)
             {
-                Console.WriteLine(err.Message);
+                MessageBox.Show(err.Message);
             }
         }
 
