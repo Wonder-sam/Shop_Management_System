@@ -1,4 +1,6 @@
 ﻿
+using ShopManagementApplication.classes;
+
 namespace ShopManagementApplication.screens.admin.manageProducts
 {
     internal class ManageCategory : UserControl
@@ -9,11 +11,19 @@ namespace ShopManagementApplication.screens.admin.manageProducts
         private TextBox categoryTextField;
         private Label categoryLabel;
         private Label removeProductHeader;
+        private TableLayoutPanel categoryTable;
+        public Label itemsHead;
+        public Label categoryHead;
         private Panel productCategoriesPanel;
 
         public ManageCategory()
         {
             InitializeComponent();
+        }
+
+        public TableLayoutPanel GetTable()
+        {
+            return categoryTable;
         }
 
         private void InitializeComponent()
@@ -25,7 +35,12 @@ namespace ShopManagementApplication.screens.admin.manageProducts
             this.categoryLabel = new System.Windows.Forms.Label();
             this.removeProductHeader = new System.Windows.Forms.Label();
             this.productCategoriesPanel = new System.Windows.Forms.Panel();
+            this.categoryTable = new System.Windows.Forms.TableLayoutPanel();
+            this.categoryHead = new System.Windows.Forms.Label();
+            this.itemsHead = new System.Windows.Forms.Label();
             this.addOrRemoveGroup.SuspendLayout();
+            this.productCategoriesPanel.SuspendLayout();
+            this.categoryTable.SuspendLayout();
             this.SuspendLayout();
             // 
             // addOrRemoveGroup
@@ -53,6 +68,7 @@ namespace ShopManagementApplication.screens.admin.manageProducts
             this.button2.TabIndex = 3;
             this.button2.Text = "Add";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -66,6 +82,7 @@ namespace ShopManagementApplication.screens.admin.manageProducts
             this.button1.TabIndex = 3;
             this.button1.Text = "Remove";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // categoryTextField
             // 
@@ -100,10 +117,54 @@ namespace ShopManagementApplication.screens.admin.manageProducts
             // productCategoriesPanel
             // 
             this.productCategoriesPanel.AutoScroll = true;
+            this.productCategoriesPanel.Controls.Add(this.categoryTable);
             this.productCategoriesPanel.Location = new System.Drawing.Point(68, 213);
             this.productCategoriesPanel.Name = "productCategoriesPanel";
             this.productCategoriesPanel.Size = new System.Drawing.Size(574, 334);
             this.productCategoriesPanel.TabIndex = 13;
+            // 
+            // categoryTable
+            // 
+            this.categoryTable.AutoSize = true;
+            this.categoryTable.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.categoryTable.ColumnCount = 2;
+            this.categoryTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.categoryTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.categoryTable.Controls.Add(this.categoryHead, 0, 0);
+            this.categoryTable.Controls.Add(this.itemsHead, 1, 0);
+            this.categoryTable.Location = new System.Drawing.Point(31, 26);
+            this.categoryTable.Name = "categoryTable";
+            this.categoryTable.RowCount = 2;
+            this.categoryTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.categoryTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.categoryTable.Size = new System.Drawing.Size(241, 38);
+            this.categoryTable.TabIndex = 0;
+            // 
+            // categoryHead
+            // 
+            this.categoryHead.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.categoryHead.AutoSize = true;
+            this.categoryHead.Location = new System.Drawing.Point(4, 1);
+            this.categoryHead.Name = "categoryHead";
+            this.categoryHead.Size = new System.Drawing.Size(100, 17);
+            this.categoryHead.TabIndex = 1;
+            this.categoryHead.Text = "Product Category";
+            this.categoryHead.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // itemsHead
+            // 
+            this.itemsHead.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.itemsHead.AutoSize = true;
+            this.itemsHead.Location = new System.Drawing.Point(111, 1);
+            this.itemsHead.Name = "itemsHead";
+            this.itemsHead.Size = new System.Drawing.Size(126, 17);
+            this.itemsHead.TabIndex = 1;
+            this.itemsHead.Text = "Number of Items";
+            this.itemsHead.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ManageCategory
             // 
@@ -114,10 +175,27 @@ namespace ShopManagementApplication.screens.admin.manageProducts
             this.Size = new System.Drawing.Size(951, 634);
             this.addOrRemoveGroup.ResumeLayout(false);
             this.addOrRemoveGroup.PerformLayout();
+            this.productCategoriesPanel.ResumeLayout(false);
+            this.productCategoriesPanel.PerformLayout();
+            this.categoryTable.ResumeLayout(false);
+            this.categoryTable.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-            this.Visible = true;    
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string category = this.categoryTextField.Text;
+            ProductCategory newProductCategory = new(category);
+            newProductCategory.AddCategory();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string category = this.categoryTextField.Text;
+            ProductCategory oldProductCaetegory = new(category);
+            oldProductCaetegory.RemoveCategory();
         }
     }
 }
