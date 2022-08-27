@@ -17,6 +17,9 @@
     <Compile Update="screens\admin\manageProducts\UpdateProduct.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="screens\admin\manageProducts\ViewProducts.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="screens\admin\manageUsers\AddUser.cs">
       <SubType>UserControl</SubType>
     </Compile>
