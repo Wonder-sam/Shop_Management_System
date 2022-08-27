@@ -32,12 +32,18 @@ namespace ShopManagementApplication.screens.admin.manageProducts
         private Button generateBtn;
         private Button addBtn;
         private Label productNameLabel;
+        private Image barcode_Image;
 
         public AddProduct()
         {
             InitializeComponent();
             this.inStockNumberField.Controls.RemoveAt(0);
-            GetCategories();
+            //GetCategories();
+        }
+
+        public ComboBox GetCategoryComboBox()
+        {
+            return productCategoryComboBox;
         }
 
         private void InitializeComponent()
@@ -298,6 +304,8 @@ namespace ShopManagementApplication.screens.admin.manageProducts
 
         private void generateBtn_Click(object sender, EventArgs e)
         {
+            Random random = new Random();
+            code = "productcode";
             Barcode generatedBarcode = new Barcode()
             {
                 BarWidth = 1
@@ -306,12 +314,21 @@ namespace ShopManagementApplication.screens.admin.manageProducts
             int imageHeight = 71;
             Color foreColor = Color.Black;
             Color backColor = Color.Transparent;
-            code = "productcode999999999999";
+            for(int i = 0; i < 12; i++)
+            {
+                int num = random.Next(10);
+                code += num;
+            }
+            Product foundProduct = Product.GetProduct(code);
+            if(foundProduct == null)
+            {
+                //MessageBox.Show(code);
+                barcode_Image = generatedBarcode.Encode(TYPE.CODE128, code, foreColor, backColor, imageWidth, imageHeight);
+                this.barcodeImage.Image = Image.FromFile(code + ".png");
+            }
 
-            Image barcodeImage = generatedBarcode.Encode(TYPE.CODE128, code, foreColor, backColor, imageWidth, imageHeight);
-            barcodeImage.Save(@"barcode.png", ImageFormat.Png);
 
-            this.barcodeImage.Image = Image.FromFile("barcode.png");
+
 
             //string[] barcode = BarcodeReader.Read(@"barcode.png");
         }
@@ -325,10 +342,16 @@ namespace ShopManagementApplication.screens.admin.manageProducts
             string expiryDate = expiryDatePicker.Text;
             string barcode = code;
 
-            Product newProduct = new Product(productName,1, float.Parse(productPrice), productCategory, 
+            if (!string.IsNullOrEmpty(code))
+            {
+                Product newProduct = new Product(productName, 1, float.Parse(productPrice), productCategory,
                 barcode, int.Parse(reorderLevel), expiryDate);
 
-            newProduct.AddProduct();
+                newProduct.AddProduct();
+                barcode_Image.Save(@"" + code + ".png", ImageFormat.Png);
+            }
+            else
+                code = "";
 
         }
 
@@ -339,7 +362,7 @@ namespace ShopManagementApplication.screens.admin.manageProducts
                 e.Graphics.DrawString(productCategoryComboBox.Items[e.Index].ToString(), e.Font, new SolidBrush(e.ForeColor), e.Bounds);
         }
 
-        private void GetCategories()
+        public void GetCategories()
         {
             DatabaseConnection connection = new();
             string enumQuery = $"SELECT COLUMN_TYPE as AllPossibleEnumValues FROM INFORMATION_SCHEMA.COLUMNS " +
