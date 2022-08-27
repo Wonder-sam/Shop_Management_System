@@ -13,6 +13,7 @@ namespace ShopManagementApplication.classes
     internal class Product
     {
         DatabaseConnection connection;
+
         public Product(string productName, int inStock, float productPrice, string productCategory, string barcode, int reorderLevel, string expiryDate)
         {
             this.productName = productName;
@@ -167,66 +168,55 @@ namespace ShopManagementApplication.classes
             connection.conn.Close();
         }
 
-        public static void ViewProducts(TableLayoutPanel productsTable)
+        public static void ViewProducts(TableLayoutPanel productTable)
         {
             DatabaseConnection connection = new();
-            string selectQuery = $"SELECT * FROM products";
+            string selectQuery = $"SELECT productName, productCategory, productPrice, reorderLevel, COUNT(productName) as inStock FROM products" +
+                $"  WHERE available =1 group by productName";
             try
             {
                 MySqlCommand cmd = new(selectQuery, connection.conn);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 DataTable dataTable = new();
                 dataTable.Load(reader);
-                productsTable.RowCount = 1;
-                productsTable.RowStyles[productsTable.RowCount - 1].Height = 40;
+                productTable.RowCount = 1;
+                productTable.RowStyles[productTable.RowCount - 1].Height = 40;
                 foreach (DataRow row in dataTable.Rows)
                 {
-                    productsTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-                    productsTable.RowCount += 1;
+                    productTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+                    productTable.RowCount += 1;
                     Label label0 = new()
                     {
-                        Text = row["name"].ToString()!,
+                        Text = row["productName"].ToString()!,
                     };
 
                     Label label1 = new()
                     {
-                        Text = row["email"].ToString()!,
+                        Text = row["productCategory"].ToString()!,
                     };
 
                     Label label2 = new()
                     {
-                        Text = row["gender"].ToString()!,
+                        Text = row["productPrice"].ToString()!,
                     };
 
                     Label label3 = new()
                     {
-
-                        Text = row["role"].ToString()!,
+                        Text = row["reorderLevel"].ToString()!,
                     };
 
                     Label label4 = new()
                     {
-                        Text = row["phone"].ToString()!,
-                    };
-
-                    Label label5 = new()
-                    {
-                        Text = row["dob"].ToString()!,
-                    };
-
-                    Label label6 = new()
-                    {
-                        Text = row["pincode"].ToString()!,
+                        Text = row["inStock"].ToString()!,
                     };
 
 
-                    productsTable.Controls.Add(label0, 0, productsTable.RowCount - 1);
-                    productsTable.Controls.Add(label5, 5, productsTable.RowCount - 1);
-                    productsTable.Controls.Add(label1, 1, productsTable.RowCount - 1);
-                    productsTable.Controls.Add(label6, 6, productsTable.RowCount - 1);
-                    productsTable.Controls.Add(label2, 2, productsTable.RowCount - 1);
-                    productsTable.Controls.Add(label4, 4, productsTable.RowCount - 1);
-                    productsTable.Controls.Add(label3, 3, productsTable.RowCount - 1);
+
+                    productTable.Controls.Add(label0, 0, productTable.RowCount - 1);
+                    productTable.Controls.Add(label1, 1, productTable.RowCount - 1);
+                    productTable.Controls.Add(label2, 2, productTable.RowCount - 1);
+                    productTable.Controls.Add(label3, 3, productTable.RowCount - 1);
+                    productTable.Controls.Add(label4, 4, productTable.RowCount - 1);
                 }
                 reader.Close();
 
