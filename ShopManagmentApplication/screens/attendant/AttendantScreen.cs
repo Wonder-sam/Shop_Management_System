@@ -51,6 +51,7 @@ namespace ShopManagementApplication.screens.attendant
         private Label username;
         private Button button3;
         private PictureBox pictureBox1;
+        private Label shopName;
         StreamWriter writer;
 
         public AttendantScreen()
@@ -93,6 +94,7 @@ namespace ShopManagementApplication.screens.attendant
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.shopName = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -107,6 +109,7 @@ namespace ShopManagementApplication.screens.attendant
             // 
             this.panel1.BackColor = System.Drawing.Color.MidnightBlue;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.shopName);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.username);
@@ -118,10 +121,10 @@ namespace ShopManagementApplication.screens.attendant
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Image = global::ShopManagementApplication.Properties.Resources.userPhoto;
-            this.pictureBox1.Location = new System.Drawing.Point(22, 3);
+            this.pictureBox1.Image = global::ShopManagementApplication.Properties.Resources.Group_103;
+            this.pictureBox1.Location = new System.Drawing.Point(202, 6);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(52, 52);
+            this.pictureBox1.Size = new System.Drawing.Size(50, 50);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
@@ -145,7 +148,7 @@ namespace ShopManagementApplication.screens.attendant
             // 
             this.username.AutoSize = true;
             this.username.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.username.Location = new System.Drawing.Point(81, 9);
+            this.username.Location = new System.Drawing.Point(269, 15);
             this.username.Name = "username";
             this.username.Size = new System.Drawing.Size(38, 15);
             this.username.TabIndex = 0;
@@ -480,6 +483,21 @@ namespace ShopManagementApplication.screens.attendant
             // printDocument1
             // 
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage_1);
+            // 
+            // shopName
+            // 
+            this.shopName.AutoSize = true;
+            this.shopName.BackColor = System.Drawing.Color.Transparent;
+            this.shopName.Font = new System.Drawing.Font("Brush Script MT", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.shopName.ForeColor = System.Drawing.Color.White;
+            this.shopName.Location = new System.Drawing.Point(-1, -1);
+            this.shopName.MaximumSize = new System.Drawing.Size(244, 60);
+            this.shopName.MinimumSize = new System.Drawing.Size(200, 60);
+            this.shopName.Name = "shopName";
+            this.shopName.Size = new System.Drawing.Size(200, 60);
+            this.shopName.TabIndex = 7;
+            this.shopName.Text = "WonderMart";
+            this.shopName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // AttendantScreen
             // 

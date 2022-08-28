@@ -172,14 +172,18 @@ namespace ShopManagementApplication.screens.admin
             // shopName
             // 
             this.shopName.AutoSize = true;
-            this.shopName.BackColor = System.Drawing.Color.Transparent;
-            this.shopName.Font = new System.Drawing.Font("Bauhaus 93", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.shopName.ForeColor = System.Drawing.Color.White;
-            this.shopName.Location = new System.Drawing.Point(50, 21);
+            this.shopName.BackColor = System.Drawing.Color.White;
+            this.shopName.Font = new System.Drawing.Font("Brush Script MT", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.shopName.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.shopName.Location = new System.Drawing.Point(-1, -1);
+            this.shopName.MaximumSize = new System.Drawing.Size(244, 0);
+            this.shopName.MinimumSize = new System.Drawing.Size(244, 0);
             this.shopName.Name = "shopName";
-            this.shopName.Size = new System.Drawing.Size(138, 36);
+            this.shopName.Padding = new System.Windows.Forms.Padding(0, 20, 0, 20);
+            this.shopName.Size = new System.Drawing.Size(244, 83);
             this.shopName.TabIndex = 2;
-            this.shopName.Text = "Shoprite";
+            this.shopName.Text = "WonderMart";
+            this.shopName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // usersTabs
             // 
@@ -197,7 +201,7 @@ namespace ShopManagementApplication.screens.admin
             this.sideTabs.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.sideTabs.FullRowSelect = true;
             this.sideTabs.ItemHeight = 30;
-            this.sideTabs.Location = new System.Drawing.Point(40, 88);
+            this.sideTabs.Location = new System.Drawing.Point(25, 104);
             this.sideTabs.Name = "sideTabs";
             treeNode1.ForeColor = System.Drawing.Color.White;
             treeNode1.Name = "addUser";
@@ -249,7 +253,7 @@ namespace ShopManagementApplication.screens.admin
             this.sideTabs.Scrollable = false;
             this.sideTabs.ShowLines = false;
             this.sideTabs.ShowPlusMinus = false;
-            this.sideTabs.Size = new System.Drawing.Size(201, 528);
+            this.sideTabs.Size = new System.Drawing.Size(216, 512);
             this.sideTabs.TabIndex = 1;
             this.sideTabs.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.SideTabs_AfterSelect);
             // 
@@ -282,8 +286,8 @@ namespace ShopManagementApplication.screens.admin
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::ShopManagementApplication.Properties.Resources.userPhoto;
-            this.pictureBox1.Location = new System.Drawing.Point(38, 11);
+            this.pictureBox1.Image = global::ShopManagementApplication.Properties.Resources.Group_103;
+            this.pictureBox1.Location = new System.Drawing.Point(17, 11);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(64, 64);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -294,7 +298,7 @@ namespace ShopManagementApplication.screens.admin
             // 
             this.username.AutoSize = true;
             this.username.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.username.Location = new System.Drawing.Point(114, 19);
+            this.username.Location = new System.Drawing.Point(87, 21);
             this.username.Name = "username";
             this.username.Size = new System.Drawing.Size(49, 15);
             this.username.TabIndex = 2;
