@@ -38,3 +38,4 @@ C:\Users\HP\Documents\C# Programs\ShopManagmentApplication\ShopManagmentApplicat
 C:\Users\HP\Documents\C# Programs\ShopManagmentApplication\ShopManagmentApplication\obj\Debug\net6.0-windows\ShopManagementApplication.screens.admin.manageProducts.ManageCategory.resources
 C:\Users\HP\Documents\C# Programs\ShopManagmentApplication\ShopManagmentApplication\obj\Debug\net6.0-windows\ShopManagementApplication.screens.LoginScreen.resources
 C:\Users\HP\Documents\C# Programs\ShopManagmentApplication\ShopManagmentApplication\obj\Debug\net6.0-windows\ShopManagementApplication.screens.admin.manageProducts.ViewProducts.resources
+C:\Users\HP\Documents\C# Programs\ShopManagmentApplication\ShopManagmentApplication\obj\Debug\net6.0-windows\ShopManagementApplication.screens.SalesReport.resources

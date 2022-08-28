@@ -38,5 +38,8 @@
     <Compile Update="screens\LoginScreen.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="screens\SalesReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>
