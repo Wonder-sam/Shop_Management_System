@@ -1,6 +1,7 @@
 ﻿
 
 using MySql.Data.MySqlClient;
+using ShopManagementApplication.classes;
 using ShopManagementApplication.database;
 using ShopManagementApplication.screens.admin;
 using ShopManagementApplication.screens.attendant;
@@ -17,6 +18,7 @@ namespace ShopManagementApplication.screens
         private Panel panel1;
         private PictureBox pictureBox1;
         private Label loginLabel;
+        public static User user;
 
         public LoginScreen()
         {
@@ -179,7 +181,7 @@ namespace ShopManagementApplication.screens
             if (pass)
             {
                 Hide();
-
+                user = new(username, role);
                 if (role == "Admin")
                 {
                     AdminScreen admin = new();
