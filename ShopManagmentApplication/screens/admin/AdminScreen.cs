@@ -29,6 +29,8 @@ namespace ShopManagementApplication.screens.admin
         private Label removeProduct;
         private Label updateProduct;
         private Label addProduct;
+        private PictureBox pictureBox1;
+        private Button button1;
         private UserControl[] tabs; 
 
         public AdminScreen()
@@ -45,6 +47,7 @@ namespace ShopManagementApplication.screens.admin
                 Location = new Point(0, 0)
             };
             this.manageProductsPage!.Controls.Add(viewProductsSubTab);
+            this.username.Text = LoginScreen.user.Username;
         }
         private void InitializeComponent()
         {
@@ -80,6 +83,8 @@ namespace ShopManagementApplication.screens.admin
             this.usersTabs = new System.Windows.Forms.Label();
             this.sideTabs = new System.Windows.Forms.TreeView();
             this.userBar = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.username = new System.Windows.Forms.Label();
             this.manageUsersTab = new System.Windows.Forms.Panel();
             this.addProduct = new System.Windows.Forms.Label();
@@ -90,6 +95,7 @@ namespace ShopManagementApplication.screens.admin
             this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.userBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.manageUsersTab.SuspendLayout();
             this.manageProductsPage.SuspendLayout();
             this.SuspendLayout();
@@ -153,7 +159,7 @@ namespace ShopManagementApplication.screens.admin
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel1.BackColor = System.Drawing.Color.MidnightBlue;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.shopName);
             this.panel1.Controls.Add(this.usersTabs);
@@ -186,7 +192,7 @@ namespace ShopManagementApplication.screens.admin
             // 
             // sideTabs
             // 
-            this.sideTabs.BackColor = System.Drawing.Color.SteelBlue;
+            this.sideTabs.BackColor = System.Drawing.Color.MidnightBlue;
             this.sideTabs.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.sideTabs.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.sideTabs.FullRowSelect = true;
@@ -249,18 +255,46 @@ namespace ShopManagementApplication.screens.admin
             // 
             // userBar
             // 
-            this.userBar.BackColor = System.Drawing.Color.SteelBlue;
+            this.userBar.BackColor = System.Drawing.Color.MidnightBlue;
             this.userBar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.userBar.Controls.Add(this.button1);
+            this.userBar.Controls.Add(this.pictureBox1);
             this.userBar.Controls.Add(this.username);
             this.userBar.Location = new System.Drawing.Point(242, 0);
             this.userBar.Name = "userBar";
             this.userBar.Size = new System.Drawing.Size(974, 90);
             this.userBar.TabIndex = 2;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.Color.SteelBlue;
+            this.button1.Location = new System.Drawing.Point(835, 21);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(115, 40);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Logout";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ShopManagementApplication.Properties.Resources.userPhoto;
+            this.pictureBox1.Location = new System.Drawing.Point(38, 11);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(64, 64);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
             // username
             // 
             this.username.AutoSize = true;
-            this.username.Location = new System.Drawing.Point(144, 38);
+            this.username.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.username.Location = new System.Drawing.Point(114, 19);
             this.username.Name = "username";
             this.username.Size = new System.Drawing.Size(49, 15);
             this.username.TabIndex = 2;
@@ -351,6 +385,7 @@ namespace ShopManagementApplication.screens.admin
             this.panel1.PerformLayout();
             this.userBar.ResumeLayout(false);
             this.userBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.manageUsersTab.ResumeLayout(false);
             this.manageProductsPage.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -393,6 +428,7 @@ namespace ShopManagementApplication.screens.admin
                 utable.Controls.Add(viewUsersSubTab.emailHeader, 3, 0);
                 utable.Controls.Add(viewUsersSubTab.gender, 4, 0);
                 utable.Controls.Add(viewUsersSubTab.phoneHeader, 7, 0);
+                utable.Controls.Add(viewUsersSubTab.created_On, 8, 0);
                 User.ViewUsers(utable);
                 utable.Visible = true;
             }
@@ -446,5 +482,18 @@ namespace ShopManagementApplication.screens.admin
             }
         }
 
+        override
+        protected void OnClosed(EventArgs e)
+        {
+            LoginScreen login = (LoginScreen)Tag;
+            login.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LoginScreen login = (LoginScreen)Tag;
+            this.Hide();
+            login.Show();
+        }
     }
 }

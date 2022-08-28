@@ -47,17 +47,25 @@ namespace ShopManagementApplication.screens.attendant
         private string stringToPrint = "";
         private string documentContents;
         private List<int> prices = new List<int>();
+        private Button button2;
+        private Label username;
+        private Button button3;
+        private PictureBox pictureBox1;
         StreamWriter writer;
 
         public AttendantScreen()
         {
             InitializeComponent();
+            this.username.Text = LoginScreen.user.Username;
         }
 
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AttendantScreen));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.username = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.receiptPanel = new System.Windows.Forms.Panel();
             this.salesTable = new System.Windows.Forms.TableLayoutPanel();
@@ -73,6 +81,7 @@ namespace ShopManagementApplication.screens.attendant
             this.productCategoryLabel = new System.Windows.Forms.Label();
             this.productNameLabel = new System.Windows.Forms.Label();
             this.tillPanel = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.barcodeImage = new System.Windows.Forms.PictureBox();
             this.quantityField = new System.Windows.Forms.NumericUpDown();
@@ -84,6 +93,8 @@ namespace ShopManagementApplication.screens.attendant
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.receiptPanel.SuspendLayout();
             this.tillPanel.SuspendLayout();
@@ -94,12 +105,51 @@ namespace ShopManagementApplication.screens.attendant
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel1.BackColor = System.Drawing.Color.MidnightBlue;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.button3);
+            this.panel1.Controls.Add(this.username);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(624, 65);
+            this.panel1.Size = new System.Drawing.Size(985, 65);
             this.panel1.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.Image = global::ShopManagementApplication.Properties.Resources.userPhoto;
+            this.pictureBox1.Location = new System.Drawing.Point(22, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(52, 52);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.White;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button3.ForeColor = System.Drawing.Color.SteelBlue;
+            this.button3.Location = new System.Drawing.Point(846, 9);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(115, 40);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "Logout";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // username
+            // 
+            this.username.AutoSize = true;
+            this.username.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.username.Location = new System.Drawing.Point(81, 9);
+            this.username.Name = "username";
+            this.username.Size = new System.Drawing.Size(38, 15);
+            this.username.TabIndex = 0;
+            this.username.Text = "label1";
             // 
             // panel2
             // 
@@ -108,9 +158,9 @@ namespace ShopManagementApplication.screens.attendant
             this.panel2.Controls.Add(this.receiptPanel);
             this.panel2.Controls.Add(this.confirmBtn);
             this.panel2.Controls.Add(this.clearBtn);
-            this.panel2.Location = new System.Drawing.Point(623, 0);
+            this.panel2.Location = new System.Drawing.Point(623, 87);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(362, 514);
+            this.panel2.Size = new System.Drawing.Size(362, 414);
             this.panel2.TabIndex = 1;
             // 
             // receiptPanel
@@ -119,9 +169,9 @@ namespace ShopManagementApplication.screens.attendant
             this.receiptPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.receiptPanel.Controls.Add(this.salesTable);
             this.receiptPanel.Controls.Add(this.receiptLabel);
-            this.receiptPanel.Location = new System.Drawing.Point(22, 38);
+            this.receiptPanel.Location = new System.Drawing.Point(22, 25);
             this.receiptPanel.Name = "receiptPanel";
-            this.receiptPanel.Size = new System.Drawing.Size(327, 388);
+            this.receiptPanel.Size = new System.Drawing.Size(327, 312);
             this.receiptPanel.TabIndex = 15;
             // 
             // salesTable
@@ -155,8 +205,9 @@ namespace ShopManagementApplication.screens.attendant
             // confirmBtn
             // 
             this.confirmBtn.BackColor = System.Drawing.Color.SteelBlue;
+            this.confirmBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.confirmBtn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.confirmBtn.Location = new System.Drawing.Point(202, 432);
+            this.confirmBtn.Location = new System.Drawing.Point(205, 351);
             this.confirmBtn.Name = "confirmBtn";
             this.confirmBtn.Size = new System.Drawing.Size(89, 30);
             this.confirmBtn.TabIndex = 14;
@@ -167,8 +218,9 @@ namespace ShopManagementApplication.screens.attendant
             // clearBtn
             // 
             this.clearBtn.BackColor = System.Drawing.Color.SteelBlue;
+            this.clearBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.clearBtn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.clearBtn.Location = new System.Drawing.Point(57, 432);
+            this.clearBtn.Location = new System.Drawing.Point(66, 351);
             this.clearBtn.Name = "clearBtn";
             this.clearBtn.Size = new System.Drawing.Size(89, 30);
             this.clearBtn.TabIndex = 14;
@@ -181,7 +233,7 @@ namespace ShopManagementApplication.screens.attendant
             this.noOfSalesLabel.AutoSize = true;
             this.noOfSalesLabel.BackColor = System.Drawing.Color.Transparent;
             this.noOfSalesLabel.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.noOfSalesLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.noOfSalesLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.noOfSalesLabel.Location = new System.Drawing.Point(430, 20);
             this.noOfSalesLabel.Name = "noOfSalesLabel";
             this.noOfSalesLabel.Size = new System.Drawing.Size(56, 18);
@@ -193,7 +245,7 @@ namespace ShopManagementApplication.screens.attendant
             this.tillLabel.AutoSize = true;
             this.tillLabel.BackColor = System.Drawing.Color.Transparent;
             this.tillLabel.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.tillLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.tillLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.tillLabel.Location = new System.Drawing.Point(23, 20);
             this.tillLabel.Name = "tillLabel";
             this.tillLabel.Size = new System.Drawing.Size(48, 18);
@@ -277,6 +329,7 @@ namespace ShopManagementApplication.screens.attendant
             this.tillPanel.BackColor = System.Drawing.Color.White;
             this.tillPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.tillPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tillPanel.Controls.Add(this.button2);
             this.tillPanel.Controls.Add(this.textBox1);
             this.tillPanel.Controls.Add(this.barcodeImage);
             this.tillPanel.Controls.Add(this.quantityField);
@@ -295,9 +348,24 @@ namespace ShopManagementApplication.screens.attendant
             this.tillPanel.Name = "tillPanel";
             this.tillPanel.Size = new System.Drawing.Size(594, 415);
             this.tillPanel.TabIndex = 2;
+            this.tillPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.tillPanel_Paint);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.SteelBlue;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button2.Location = new System.Drawing.Point(483, 383);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(110, 31);
+            this.button2.TabIndex = 16;
+            this.button2.Text = "Daily Report";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // textBox1
             // 
+            this.textBox1.BackColor = System.Drawing.Color.SteelBlue;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Location = new System.Drawing.Point(396, 117);
             this.textBox1.Name = "textBox1";
@@ -337,24 +405,24 @@ namespace ShopManagementApplication.screens.attendant
             this.tillAmount.AutoSize = true;
             this.tillAmount.BackColor = System.Drawing.Color.Transparent;
             this.tillAmount.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tillAmount.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.tillAmount.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.tillAmount.Location = new System.Drawing.Point(77, 20);
             this.tillAmount.Name = "tillAmount";
-            this.tillAmount.Size = new System.Drawing.Size(48, 18);
+            this.tillAmount.Size = new System.Drawing.Size(32, 18);
             this.tillAmount.TabIndex = 0;
-            this.tillAmount.Text = "Till:";
+            this.tillAmount.Text = "200";
             // 
             // noOfSales
             // 
             this.noOfSales.AutoSize = true;
             this.noOfSales.BackColor = System.Drawing.Color.Transparent;
             this.noOfSales.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.noOfSales.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.noOfSales.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.noOfSales.Location = new System.Drawing.Point(492, 20);
             this.noOfSales.Name = "noOfSales";
-            this.noOfSales.Size = new System.Drawing.Size(56, 18);
+            this.noOfSales.Size = new System.Drawing.Size(16, 18);
             this.noOfSales.TabIndex = 0;
-            this.noOfSales.Text = "Sales:";
+            this.noOfSales.Text = "0";
             // 
             // quantityLabel
             // 
@@ -424,6 +492,9 @@ namespace ShopManagementApplication.screens.attendant
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "AttendantScreen";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.receiptPanel.ResumeLayout(false);
             this.receiptPanel.PerformLayout();
@@ -439,7 +510,8 @@ namespace ShopManagementApplication.screens.attendant
         override
         protected void OnClosed(EventArgs e)
         {
-
+            LoginScreen login = (LoginScreen)Tag;
+            login.Close();
         }
 
         private void quantityField_ValueChanged(object sender, EventArgs e)
@@ -527,12 +599,16 @@ namespace ShopManagementApplication.screens.attendant
             MessageBox.Show(prices.Sum()+"");
             try
             {
-                //MySqlCommand cmd = new(insertQuery, connection.conn);
-                //MySqlCommand cmd2 = new(updateQuery, connection.conn);
+                string creditText = Microsoft.VisualBasic.Interaction.InputBox("Enter credit amount","Customer Credit");
+                int creditAmount = int.Parse(creditText);
+                MySqlCommand cmd = new(insertQuery, connection.conn);
+                MySqlCommand cmd2 = new(updateQuery, connection.conn);
 
-                //cmd.ExecuteNonQuery();
-                //cmd2.ExecuteNonQuery();
-                MessageBox.Show("Succesful transaction");
+                cmd.ExecuteNonQuery();
+                cmd2.ExecuteNonQuery();
+                MessageBox.Show("Succesful transaction\n Balance: " + (creditAmount - prices.Sum()));
+                this.tillAmount.Text = (int.Parse(this.tillAmount.Text) + prices.Sum()).ToString();
+                this.noOfSales.Text = (int.Parse(this.noOfSales.Text)+1).ToString();
                 ReadDocument();
                 printPreviewDialog1.Document = printDocument1;
                 printPreviewDialog1.ShowDialog();
@@ -582,6 +658,24 @@ namespace ShopManagementApplication.screens.attendant
             // If there are no more pages, reset the string to be printed.
             if (!e.HasMorePages)
                 stringToPrint = documentContents;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SalesReport dailyReport = new();
+            dailyReport.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            LoginScreen login = (LoginScreen)Tag;
+            this.Hide();
+            login.Show();
+        }
+
+        private void tillPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
