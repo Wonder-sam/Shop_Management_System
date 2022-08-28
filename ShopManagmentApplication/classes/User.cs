@@ -40,6 +40,12 @@ namespace ShopManagementApplication.classes
             this.privileged = privileged;
         }
 
+        public User(string username, string role)
+        {
+            this.username = username;
+            this.role = role;
+        }
+
         private String username;
 
         public String Username
@@ -260,6 +266,10 @@ namespace ShopManagementApplication.classes
                     {
                         Text = row["dob"].ToString()!,
                     };
+                    Label label9 = new()
+                    {
+                        Text = row["createdAt"].ToString()!,
+                    };
 
                     usersTable.Controls.Add(label0, 0, usersTable.RowCount - 1);
                     usersTable.Controls.Add(label5, 5, usersTable.RowCount - 1);
@@ -269,6 +279,7 @@ namespace ShopManagementApplication.classes
                     usersTable.Controls.Add(label2, 4, usersTable.RowCount - 1);
                     usersTable.Controls.Add(label1, 3, usersTable.RowCount - 1);
                     usersTable.Controls.Add(label4, 7, usersTable.RowCount - 1);
+                    usersTable.Controls.Add(label9, 8, usersTable.RowCount - 1);
                 }
                 reader.Close();
 
