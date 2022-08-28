@@ -14,6 +14,7 @@ namespace ShopManagementApplication.screens.admin.manageProducts
         public Label label4;
         public Label label2;
         public Label label3;
+        private Label label6;
         private TableLayoutPanel productTable;
 
         public ViewProducts()
@@ -35,6 +36,7 @@ namespace ShopManagementApplication.screens.admin.manageProducts
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.productTable.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -123,9 +125,21 @@ namespace ShopManagementApplication.screens.admin.manageProducts
             this.label3.Text = "Product Price";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label6.ForeColor = System.Drawing.Color.SteelBlue;
+            this.label6.Location = new System.Drawing.Point(81, 57);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(90, 22);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Products";
+            // 
             // ViewProducts
             // 
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.productTable);
             this.Name = "ViewProducts";
             this.Size = new System.Drawing.Size(951, 634);

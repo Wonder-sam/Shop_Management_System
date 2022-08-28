@@ -74,11 +74,11 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             // 
             this.welcomeText.AutoSize = true;
             this.welcomeText.BackColor = System.Drawing.Color.Transparent;
-            this.welcomeText.Font = new System.Drawing.Font("Consolas", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.welcomeText.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.welcomeText.ForeColor = System.Drawing.Color.SteelBlue;
             this.welcomeText.Location = new System.Drawing.Point(14, 0);
             this.welcomeText.Name = "welcomeText";
-            this.welcomeText.Size = new System.Drawing.Size(116, 28);
+            this.welcomeText.Size = new System.Drawing.Size(90, 22);
             this.welcomeText.TabIndex = 0;
             this.welcomeText.Text = "New User";
             this.welcomeText.UseMnemonic = false;
@@ -331,6 +331,7 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             // addUserBtn
             // 
             this.addUserBtn.BackColor = System.Drawing.Color.MidnightBlue;
+            this.addUserBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addUserBtn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.addUserBtn.Location = new System.Drawing.Point(115, 503);
             this.addUserBtn.Name = "addUserBtn";
@@ -357,7 +358,7 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.addUserForm);
             this.Name = "AddUser";
-            this.Size = new System.Drawing.Size(951, 602);
+            this.Size = new System.Drawing.Size(951, 614);
             this.lastNameGroup.ResumeLayout(false);
             this.lastNameGroup.PerformLayout();
             this.genderGroup.ResumeLayout(false);

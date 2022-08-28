@@ -17,6 +17,8 @@ namespace ShopManagementApplication.screens.admin.manageUsers
         public Label label5;
         public Label roleHeader;
         public Label phoneHeader;
+        private Label label1;
+        public Label created_On;
         private TableLayoutPanel usersTable;
 
         public ViewUsers()
@@ -33,6 +35,7 @@ namespace ShopManagementApplication.screens.admin.manageUsers
         private void InitializeComponent()
         {
             this.usersTable = new System.Windows.Forms.TableLayoutPanel();
+            this.created_On = new System.Windows.Forms.Label();
             this.lastnameHeader = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.firstnameHeader = new System.Windows.Forms.Label();
@@ -41,6 +44,7 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             this.emailHeader = new System.Windows.Forms.Label();
             this.gender = new System.Windows.Forms.Label();
             this.phoneHeader = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.usersTable.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,7 +52,7 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             // 
             this.usersTable.AutoSize = true;
             this.usersTable.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.usersTable.ColumnCount = 8;
+            this.usersTable.ColumnCount = 9;
             this.usersTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.usersTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.usersTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -57,6 +61,8 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             this.usersTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.usersTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.usersTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.usersTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.usersTable.Controls.Add(this.created_On, 8, 0);
             this.usersTable.Controls.Add(this.lastnameHeader, 0, 0);
             this.usersTable.Controls.Add(this.label5, 5, 0);
             this.usersTable.Controls.Add(this.firstnameHeader, 1, 0);
@@ -65,12 +71,25 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             this.usersTable.Controls.Add(this.emailHeader, 3, 0);
             this.usersTable.Controls.Add(this.gender, 4, 0);
             this.usersTable.Controls.Add(this.phoneHeader, 7, 0);
-            this.usersTable.Location = new System.Drawing.Point(44, 69);
+            this.usersTable.Location = new System.Drawing.Point(17, 87);
             this.usersTable.Name = "usersTable";
             this.usersTable.RowCount = 1;
             this.usersTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.usersTable.Size = new System.Drawing.Size(501, 54);
+            this.usersTable.Size = new System.Drawing.Size(546, 54);
             this.usersTable.TabIndex = 0;
+            // 
+            // created_On
+            // 
+            this.created_On.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.created_On.AutoSize = true;
+            this.created_On.Location = new System.Drawing.Point(472, 1);
+            this.created_On.Name = "created_On";
+            this.created_On.Size = new System.Drawing.Size(70, 52);
+            this.created_On.TabIndex = 2;
+            this.created_On.Text = "Created On ";
+            this.created_On.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lastnameHeader
             // 
@@ -172,17 +191,29 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             this.phoneHeader.AutoSize = true;
             this.phoneHeader.Location = new System.Drawing.Point(424, 1);
             this.phoneHeader.Name = "phoneHeader";
-            this.phoneHeader.Size = new System.Drawing.Size(73, 52);
+            this.phoneHeader.Size = new System.Drawing.Size(41, 52);
             this.phoneHeader.TabIndex = 8;
             this.phoneHeader.Text = "Phone";
             this.phoneHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.SteelBlue;
+            this.label1.Location = new System.Drawing.Point(64, 46);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 22);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Users";
+            // 
             // ViewUsers
             // 
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.usersTable);
             this.Name = "ViewUsers";
-            this.Size = new System.Drawing.Size(951, 602);
+            this.Size = new System.Drawing.Size(991, 602);
             this.usersTable.ResumeLayout(false);
             this.usersTable.PerformLayout();
             this.ResumeLayout(false);

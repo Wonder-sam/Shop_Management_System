@@ -78,18 +78,18 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             // 
             this.updateUserHeader.AutoSize = true;
             this.updateUserHeader.BackColor = System.Drawing.Color.Transparent;
-            this.updateUserHeader.Font = new System.Drawing.Font("Consolas", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.updateUserHeader.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.updateUserHeader.ForeColor = System.Drawing.Color.SteelBlue;
-            this.updateUserHeader.Location = new System.Drawing.Point(114, 25);
+            this.updateUserHeader.Location = new System.Drawing.Point(114, 21);
             this.updateUserHeader.Name = "updateUserHeader";
-            this.updateUserHeader.Size = new System.Drawing.Size(155, 28);
+            this.updateUserHeader.Size = new System.Drawing.Size(120, 22);
             this.updateUserHeader.TabIndex = 0;
             this.updateUserHeader.Text = "Update User";
             // 
             // usernameLabel
             // 
             this.usernameLabel.AutoSize = true;
-            this.usernameLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.usernameLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.usernameLabel.Location = new System.Drawing.Point(20, 30);
             this.usernameLabel.Name = "usernameLabel";
             this.usernameLabel.Size = new System.Drawing.Size(63, 15);
@@ -108,6 +108,7 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.SteelBlue;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(244, 49);
@@ -123,7 +124,7 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             this.findUserGroup.Controls.Add(this.usernameTextField);
             this.findUserGroup.Controls.Add(this.button1);
             this.findUserGroup.Controls.Add(this.usernameLabel);
-            this.findUserGroup.Location = new System.Drawing.Point(114, 72);
+            this.findUserGroup.Location = new System.Drawing.Point(114, 58);
             this.findUserGroup.Name = "findUserGroup";
             this.findUserGroup.Size = new System.Drawing.Size(450, 92);
             this.findUserGroup.TabIndex = 4;
@@ -150,7 +151,7 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             this.foundUserGroup.Controls.Add(this.firstNameLabel);
             this.foundUserGroup.Controls.Add(this.lastNameTextField);
             this.foundUserGroup.Controls.Add(this.lastNameLabel);
-            this.foundUserGroup.Location = new System.Drawing.Point(114, 181);
+            this.foundUserGroup.Location = new System.Drawing.Point(114, 167);
             this.foundUserGroup.Name = "foundUserGroup";
             this.foundUserGroup.Size = new System.Drawing.Size(450, 370);
             this.foundUserGroup.TabIndex = 5;
@@ -201,7 +202,7 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             // genderLabel
             // 
             this.genderLabel.AutoSize = true;
-            this.genderLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.genderLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.genderLabel.Location = new System.Drawing.Point(20, 234);
             this.genderLabel.Name = "genderLabel";
             this.genderLabel.Size = new System.Drawing.Size(48, 15);
@@ -212,7 +213,7 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             // roleLabel
             // 
             this.roleLabel.AutoSize = true;
-            this.roleLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.roleLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.roleLabel.Location = new System.Drawing.Point(229, 234);
             this.roleLabel.Name = "roleLabel";
             this.roleLabel.Size = new System.Drawing.Size(33, 15);
@@ -223,10 +224,10 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             // dobLabel
             // 
             this.dobLabel.AutoSize = true;
-            this.dobLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.dobLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dobLabel.Location = new System.Drawing.Point(229, 167);
             this.dobLabel.Name = "dobLabel";
-            this.dobLabel.Size = new System.Drawing.Size(74, 15);
+            this.dobLabel.Size = new System.Drawing.Size(73, 15);
             this.dobLabel.TabIndex = 1;
             this.dobLabel.Text = "Date of Birth";
             this.dobLabel.Click += new System.EventHandler(this.foundUsernameLabel_Click);
@@ -244,7 +245,7 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             // phoneLabel
             // 
             this.phoneLabel.AutoSize = true;
-            this.phoneLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.phoneLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.phoneLabel.Location = new System.Drawing.Point(20, 305);
             this.phoneLabel.Name = "phoneLabel";
             this.phoneLabel.Size = new System.Drawing.Size(44, 15);
@@ -265,7 +266,7 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             // foundUsernameLabel
             // 
             this.foundUsernameLabel.AutoSize = true;
-            this.foundUsernameLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.foundUsernameLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.foundUsernameLabel.Location = new System.Drawing.Point(20, 167);
             this.foundUsernameLabel.Name = "foundUsernameLabel";
             this.foundUsernameLabel.Size = new System.Drawing.Size(63, 15);
@@ -286,7 +287,7 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             // passwordLabel
             // 
             this.passwordLabel.AutoSize = true;
-            this.passwordLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.passwordLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.passwordLabel.Location = new System.Drawing.Point(229, 102);
             this.passwordLabel.Name = "passwordLabel";
             this.passwordLabel.Size = new System.Drawing.Size(60, 15);
@@ -305,7 +306,7 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             // emailLable
             // 
             this.emailLable.AutoSize = true;
-            this.emailLable.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.emailLable.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.emailLable.Location = new System.Drawing.Point(20, 102);
             this.emailLable.Name = "emailLable";
             this.emailLable.Size = new System.Drawing.Size(39, 15);
@@ -324,7 +325,7 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             // firstNameLabel
             // 
             this.firstNameLabel.AutoSize = true;
-            this.firstNameLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.firstNameLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.firstNameLabel.Location = new System.Drawing.Point(229, 32);
             this.firstNameLabel.Name = "firstNameLabel";
             this.firstNameLabel.Size = new System.Drawing.Size(67, 15);
@@ -343,7 +344,7 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             // lastNameLabel
             // 
             this.lastNameLabel.AutoSize = true;
-            this.lastNameLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lastNameLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lastNameLabel.Location = new System.Drawing.Point(20, 32);
             this.lastNameLabel.Name = "lastNameLabel";
             this.lastNameLabel.Size = new System.Drawing.Size(66, 15);
@@ -353,9 +354,10 @@ namespace ShopManagementApplication.screens.admin.manageUsers
             // updateBtn
             // 
             this.updateBtn.BackColor = System.Drawing.Color.MidnightBlue;
+            this.updateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.updateBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.updateBtn.ForeColor = System.Drawing.Color.White;
-            this.updateBtn.Location = new System.Drawing.Point(222, 557);
+            this.updateBtn.Location = new System.Drawing.Point(222, 543);
             this.updateBtn.Name = "updateBtn";
             this.updateBtn.Size = new System.Drawing.Size(213, 42);
             this.updateBtn.TabIndex = 6;

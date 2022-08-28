@@ -21,10 +21,8 @@ namespace ShopManagementApplication.screens.admin.manageProducts
         private Label barcodeLabel;
         private Label expiryDateLabel;
         private Label reorderLevelLabel;
-        private Label inStockLabel;
         private Label productPriceLabel;
         private Label productCategoryLabel;
-        private NumericUpDown inStockNumberField;
         private TextBox reorderLevelTextField;
         private TextBox productPriceTextField;
         private ComboBox productCategoryComboBox;
@@ -37,7 +35,6 @@ namespace ShopManagementApplication.screens.admin.manageProducts
         public AddProduct()
         {
             InitializeComponent();
-            this.inStockNumberField.Controls.RemoveAt(0);
             //GetCategories();
         }
 
@@ -53,7 +50,6 @@ namespace ShopManagementApplication.screens.admin.manageProducts
             this.generateBtn = new System.Windows.Forms.Button();
             this.productCategoryComboBox = new System.Windows.Forms.ComboBox();
             this.expiryDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.inStockNumberField = new System.Windows.Forms.NumericUpDown();
             this.reorderLevelTextField = new System.Windows.Forms.TextBox();
             this.productPriceTextField = new System.Windows.Forms.TextBox();
             this.productNameTextField = new System.Windows.Forms.TextBox();
@@ -61,13 +57,11 @@ namespace ShopManagementApplication.screens.admin.manageProducts
             this.barcodeLabel = new System.Windows.Forms.Label();
             this.expiryDateLabel = new System.Windows.Forms.Label();
             this.reorderLevelLabel = new System.Windows.Forms.Label();
-            this.inStockLabel = new System.Windows.Forms.Label();
             this.productPriceLabel = new System.Windows.Forms.Label();
             this.productCategoryLabel = new System.Windows.Forms.Label();
             this.productNameLabel = new System.Windows.Forms.Label();
             this.addBtn = new System.Windows.Forms.Button();
             this.productDetailsGroup.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.inStockNumberField)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barcodeImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,7 +81,6 @@ namespace ShopManagementApplication.screens.admin.manageProducts
             this.productDetailsGroup.Controls.Add(this.generateBtn);
             this.productDetailsGroup.Controls.Add(this.productCategoryComboBox);
             this.productDetailsGroup.Controls.Add(this.expiryDatePicker);
-            this.productDetailsGroup.Controls.Add(this.inStockNumberField);
             this.productDetailsGroup.Controls.Add(this.reorderLevelTextField);
             this.productDetailsGroup.Controls.Add(this.productPriceTextField);
             this.productDetailsGroup.Controls.Add(this.productNameTextField);
@@ -95,7 +88,6 @@ namespace ShopManagementApplication.screens.admin.manageProducts
             this.productDetailsGroup.Controls.Add(this.barcodeLabel);
             this.productDetailsGroup.Controls.Add(this.expiryDateLabel);
             this.productDetailsGroup.Controls.Add(this.reorderLevelLabel);
-            this.productDetailsGroup.Controls.Add(this.inStockLabel);
             this.productDetailsGroup.Controls.Add(this.productPriceLabel);
             this.productDetailsGroup.Controls.Add(this.productCategoryLabel);
             this.productDetailsGroup.Controls.Add(this.productNameLabel);
@@ -105,12 +97,14 @@ namespace ShopManagementApplication.screens.admin.manageProducts
             this.productDetailsGroup.TabIndex = 1;
             this.productDetailsGroup.TabStop = false;
             this.productDetailsGroup.Text = "Product Details";
+            this.productDetailsGroup.Enter += new System.EventHandler(this.productDetailsGroup_Enter);
             // 
             // generateBtn
             // 
-            this.generateBtn.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.generateBtn.BackColor = System.Drawing.Color.SteelBlue;
+            this.generateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.generateBtn.ForeColor = System.Drawing.Color.White;
-            this.generateBtn.Location = new System.Drawing.Point(177, 417);
+            this.generateBtn.Location = new System.Drawing.Point(184, 417);
             this.generateBtn.Name = "generateBtn";
             this.generateBtn.Size = new System.Drawing.Size(155, 36);
             this.generateBtn.TabIndex = 6;
@@ -133,39 +127,17 @@ namespace ShopManagementApplication.screens.admin.manageProducts
             // 
             this.expiryDatePicker.CustomFormat = "dd/MM/yyyy";
             this.expiryDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.expiryDatePicker.Location = new System.Drawing.Point(295, 243);
+            this.expiryDatePicker.Location = new System.Drawing.Point(28, 243);
             this.expiryDatePicker.MaximumSize = new System.Drawing.Size(197, 32);
             this.expiryDatePicker.MinimumSize = new System.Drawing.Size(197, 32);
             this.expiryDatePicker.Name = "expiryDatePicker";
             this.expiryDatePicker.Size = new System.Drawing.Size(197, 32);
             this.expiryDatePicker.TabIndex = 4;
             // 
-            // inStockNumberField
-            // 
-            this.inStockNumberField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.inStockNumberField.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.inStockNumberField.Location = new System.Drawing.Point(295, 156);
-            this.inStockNumberField.MaximumSize = new System.Drawing.Size(197, 0);
-            this.inStockNumberField.Minimum = new decimal(new int[] {
-            2,
-            0,
-            0,
-            0});
-            this.inStockNumberField.MinimumSize = new System.Drawing.Size(197, 0);
-            this.inStockNumberField.Name = "inStockNumberField";
-            this.inStockNumberField.Size = new System.Drawing.Size(197, 25);
-            this.inStockNumberField.TabIndex = 3;
-            this.inStockNumberField.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.inStockNumberField.Value = new decimal(new int[] {
-            2,
-            0,
-            0,
-            0});
-            // 
             // reorderLevelTextField
             // 
             this.reorderLevelTextField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.reorderLevelTextField.Location = new System.Drawing.Point(28, 243);
+            this.reorderLevelTextField.Location = new System.Drawing.Point(295, 156);
             this.reorderLevelTextField.MaximumSize = new System.Drawing.Size(197, 32);
             this.reorderLevelTextField.MinimumSize = new System.Drawing.Size(197, 32);
             this.reorderLevelTextField.Name = "reorderLevelTextField";
@@ -215,37 +187,27 @@ namespace ShopManagementApplication.screens.admin.manageProducts
             // expiryDateLabel
             // 
             this.expiryDateLabel.AutoSize = true;
-            this.expiryDateLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.expiryDateLabel.Location = new System.Drawing.Point(295, 218);
+            this.expiryDateLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.expiryDateLabel.Location = new System.Drawing.Point(28, 218);
             this.expiryDateLabel.Name = "expiryDateLabel";
-            this.expiryDateLabel.Size = new System.Drawing.Size(70, 15);
+            this.expiryDateLabel.Size = new System.Drawing.Size(69, 15);
             this.expiryDateLabel.TabIndex = 0;
             this.expiryDateLabel.Text = "Expiry Date:";
             // 
             // reorderLevelLabel
             // 
             this.reorderLevelLabel.AutoSize = true;
-            this.reorderLevelLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.reorderLevelLabel.Location = new System.Drawing.Point(24, 218);
+            this.reorderLevelLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.reorderLevelLabel.Location = new System.Drawing.Point(291, 131);
             this.reorderLevelLabel.Name = "reorderLevelLabel";
             this.reorderLevelLabel.Size = new System.Drawing.Size(81, 15);
             this.reorderLevelLabel.TabIndex = 0;
             this.reorderLevelLabel.Text = "Reorder Level:";
             // 
-            // inStockLabel
-            // 
-            this.inStockLabel.AutoSize = true;
-            this.inStockLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.inStockLabel.Location = new System.Drawing.Point(295, 132);
-            this.inStockLabel.Name = "inStockLabel";
-            this.inStockLabel.Size = new System.Drawing.Size(101, 15);
-            this.inStockLabel.TabIndex = 0;
-            this.inStockLabel.Text = "Number In Stock:";
-            // 
             // productPriceLabel
             // 
             this.productPriceLabel.AutoSize = true;
-            this.productPriceLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.productPriceLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.productPriceLabel.Location = new System.Drawing.Point(24, 132);
             this.productPriceLabel.Name = "productPriceLabel";
             this.productPriceLabel.Size = new System.Drawing.Size(81, 15);
@@ -255,17 +217,17 @@ namespace ShopManagementApplication.screens.admin.manageProducts
             // productCategoryLabel
             // 
             this.productCategoryLabel.AutoSize = true;
-            this.productCategoryLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.productCategoryLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.productCategoryLabel.Location = new System.Drawing.Point(295, 45);
             this.productCategoryLabel.Name = "productCategoryLabel";
-            this.productCategoryLabel.Size = new System.Drawing.Size(102, 15);
+            this.productCategoryLabel.Size = new System.Drawing.Size(103, 15);
             this.productCategoryLabel.TabIndex = 0;
             this.productCategoryLabel.Text = "Product Category:";
             // 
             // productNameLabel
             // 
             this.productNameLabel.AutoSize = true;
-            this.productNameLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.productNameLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.productNameLabel.Location = new System.Drawing.Point(24, 45);
             this.productNameLabel.Name = "productNameLabel";
             this.productNameLabel.Size = new System.Drawing.Size(87, 15);
@@ -274,9 +236,10 @@ namespace ShopManagementApplication.screens.admin.manageProducts
             // 
             // addBtn
             // 
-            this.addBtn.BackColor = System.Drawing.Color.SteelBlue;
+            this.addBtn.BackColor = System.Drawing.Color.MidnightBlue;
+            this.addBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addBtn.ForeColor = System.Drawing.Color.White;
-            this.addBtn.Location = new System.Drawing.Point(251, 582);
+            this.addBtn.Location = new System.Drawing.Point(258, 582);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(170, 45);
             this.addBtn.TabIndex = 2;
@@ -295,7 +258,6 @@ namespace ShopManagementApplication.screens.admin.manageProducts
             this.Size = new System.Drawing.Size(951, 668);
             this.productDetailsGroup.ResumeLayout(false);
             this.productDetailsGroup.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.inStockNumberField)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barcodeImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -389,6 +351,11 @@ namespace ShopManagementApplication.screens.admin.manageProducts
                 Console.WriteLine(e.Message);
                 Console.ReadKey();
             }
+        }
+
+        private void productDetailsGroup_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

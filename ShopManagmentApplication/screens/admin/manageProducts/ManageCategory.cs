@@ -14,6 +14,7 @@ namespace ShopManagementApplication.screens.admin.manageProducts
         private TableLayoutPanel categoryTable;
         public Label itemsHead;
         public Label categoryHead;
+        private Label label1;
         private Panel productCategoriesPanel;
 
         public ManageCategory()
@@ -38,6 +39,7 @@ namespace ShopManagementApplication.screens.admin.manageProducts
             this.categoryTable = new System.Windows.Forms.TableLayoutPanel();
             this.categoryHead = new System.Windows.Forms.Label();
             this.itemsHead = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.addOrRemoveGroup.SuspendLayout();
             this.productCategoriesPanel.SuspendLayout();
             this.categoryTable.SuspendLayout();
@@ -96,10 +98,10 @@ namespace ShopManagementApplication.screens.admin.manageProducts
             // categoryLabel
             // 
             this.categoryLabel.AutoSize = true;
-            this.categoryLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.categoryLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.categoryLabel.Location = new System.Drawing.Point(20, 30);
             this.categoryLabel.Name = "categoryLabel";
-            this.categoryLabel.Size = new System.Drawing.Size(57, 15);
+            this.categoryLabel.Size = new System.Drawing.Size(58, 15);
             this.categoryLabel.TabIndex = 1;
             this.categoryLabel.Text = "Category:";
             // 
@@ -117,7 +119,7 @@ namespace ShopManagementApplication.screens.admin.manageProducts
             // productCategoriesPanel
             // 
             this.productCategoriesPanel.AutoScroll = true;
-            this.productCategoriesPanel.Controls.Add(this.categoryTable);
+            this.productCategoriesPanel.Controls.Add(this.label1);
             this.productCategoriesPanel.Location = new System.Drawing.Point(68, 213);
             this.productCategoriesPanel.Name = "productCategoriesPanel";
             this.productCategoriesPanel.Size = new System.Drawing.Size(574, 334);
@@ -132,7 +134,7 @@ namespace ShopManagementApplication.screens.admin.manageProducts
             this.categoryTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.categoryTable.Controls.Add(this.categoryHead, 0, 0);
             this.categoryTable.Controls.Add(this.itemsHead, 1, 0);
-            this.categoryTable.Location = new System.Drawing.Point(31, 26);
+            this.categoryTable.Location = new System.Drawing.Point(68, 261);
             this.categoryTable.Name = "categoryTable";
             this.categoryTable.RowCount = 2;
             this.categoryTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -166,8 +168,20 @@ namespace ShopManagementApplication.screens.admin.manageProducts
             this.itemsHead.Text = "Number of Items";
             this.itemsHead.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.SteelBlue;
+            this.label1.Location = new System.Drawing.Point(0, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(151, 21);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Product Categories";
+            // 
             // ManageCategory
             // 
+            this.Controls.Add(this.categoryTable);
             this.Controls.Add(this.productCategoriesPanel);
             this.Controls.Add(this.addOrRemoveGroup);
             this.Controls.Add(this.removeProductHeader);
