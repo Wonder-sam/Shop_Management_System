@@ -286,6 +286,8 @@ namespace ShopManagementApplication.screens.admin.manageProducts
             {
                 //MessageBox.Show(code);
                 barcode_Image = generatedBarcode.Encode(TYPE.CODE128, code, foreColor, backColor, imageWidth, imageHeight);
+
+                barcode_Image.Save(@"" + code + ".png", ImageFormat.Png);
                 this.barcodeImage.Image = Image.FromFile(code + ".png");
             }
 
@@ -310,7 +312,6 @@ namespace ShopManagementApplication.screens.admin.manageProducts
                 barcode, int.Parse(reorderLevel), expiryDate);
 
                 newProduct.AddProduct();
-                barcode_Image.Save(@"" + code + ".png", ImageFormat.Png);
             }
             else
                 code = "";
